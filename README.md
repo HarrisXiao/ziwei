@@ -56,10 +56,10 @@ curl http://127.0.0.1:4000/health
 
 ```text
 key: ziwei_api_base
-value: https://api.yourdomain.com
+value: https://api.pppfdsfs.top
 ```
 
-正式版/体验版应使用 HTTPS 域名，并把 `miniprogram/config.js` 里的 `DEFAULT_REMOTE_API_BASE` 设置为后端域名。
+正式版/体验版会使用 `https://api.pppfdsfs.top`，对应配置在 `miniprogram/config.js` 的 `DEFAULT_REMOTE_API_BASE`。
 
 ## 后端接口验证
 
@@ -105,7 +105,7 @@ GitHub Actions 会先执行后端烟雾测试，成功后再部署。
 
 ```bash
 export DB_PASSWORD='change-this-password'
-export API_DOMAIN='api.yourdomain.com'
+export API_DOMAIN='api.pppfdsfs.top'
 bash deploy/bootstrap-centos.sh
 ```
 
@@ -122,7 +122,7 @@ bash deploy/bootstrap-centos.sh
 首次跑完后建议再配置 HTTPS 证书，例如 Certbot：
 
 ```bash
-certbot --nginx -d api.yourdomain.com
+certbot --nginx -d api.pppfdsfs.top
 ```
 
 ## 服务器后续部署

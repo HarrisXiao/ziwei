@@ -3,8 +3,7 @@ const FALLBACK_LOCAL_API_CANDIDATES = [
   "http://localhost:4000"
 ];
 
-// Set this before preview/upload, for example: "https://api.yourdomain.com".
-const DEFAULT_REMOTE_API_BASE = "";
+const DEFAULT_REMOTE_API_BASE = "https://api.pppfdsfs.top";
 
 function getAccountEnvVersion() {
   try {
