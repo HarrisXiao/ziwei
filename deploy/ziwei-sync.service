@@ -1,0 +1,11 @@
+[Unit]
+Description=Deploy Ziwei when GitHub Actions is green
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/ziwei
+ExecStart=/bin/bash /opt/ziwei/deploy/deploy-if-github-green.sh
+User=root
+SyslogIdentifier=ziwei-sync

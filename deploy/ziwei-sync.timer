@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Ziwei GitHub Actions and deploy periodically
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Unit=ziwei-sync.service
+
+[Install]
+WantedBy=timers.target

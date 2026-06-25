@@ -168,6 +168,7 @@ bash /opt/ziwei/deploy/restore-postgres.sh /path/to/ziwei-backup.dump
 - Nginx：现有自定义 Nginx，新增 `api.pppfdsfs.top` server block，不覆盖 VPN 的 `www.pppfdsfs.top`
 - Backend：`ziwei-backend` systemd 服务，监听 `127.0.0.1:4000`
 - Storage：PostgreSQL 14，连接串在 `/etc/ziwei/backend.env`
+- Sync：`ziwei-sync.timer` 每 5 分钟检查一次 GitHub Actions；只有最新 `main` 对应的 Actions 成功后才自动部署
 
 验证命令：
 
@@ -175,6 +176,7 @@ bash /opt/ziwei/deploy/restore-postgres.sh /path/to/ziwei-backup.dump
 curl https://api.pppfdsfs.top/health
 systemctl status ziwei-backend
 systemctl status postgresql-14
+systemctl status ziwei-sync.timer
 ```
 
 这台机器同时跑 `v2ray`，短期开发/内测可以共用。正式上线建议迁移到独立服务器，避免 API、数据库、VPN 共用一台机器和同一个 Nginx 入口。
