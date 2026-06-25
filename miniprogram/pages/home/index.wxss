@@ -1,0 +1,410 @@
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(255, 226, 237, 0.92), transparent 28%),
+    radial-gradient(circle at left bottom, rgba(255, 238, 214, 0.42), transparent 26%),
+  linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(248, 238, 244, 0.96));
+  border-radius: 24rpx;
+  padding-top: 52rpx;
+  margin-top: 10rpx;
+}
+
+.hero-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24rpx;
+  margin-top: 28rpx;
+  min-width: 0;
+}
+
+.hero-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+}
+
+.hero-star {
+  position: absolute;
+  color: #d9b164;
+  font-size: 46rpx;
+}
+
+.hero-star--1 {
+  top: 24rpx;
+  right: 70rpx;
+}
+
+.hero-star--2 {
+  top: 78rpx;
+  right: 130rpx;
+}
+
+.hero-star--3 {
+  top: 154rpx;
+  right: 38rpx;
+}
+
+.hero-star--4 {
+  top: 110rpx;
+  right: 190rpx;
+}
+
+.hero-desc {
+  display: block;
+  line-height: 1.7;
+  max-width: 420rpx;
+}
+
+.hero-quote {
+  display: block;
+  margin-top: 22rpx;
+  color: rgba(126, 104, 117, 0.78);
+  font-size: 22rpx;
+  line-height: 1.8;
+}
+
+.hero-pills {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+  margin-top: 28rpx;
+}
+
+.hero-badge {
+  width: 110rpx;
+  height: 110rpx;
+  flex-shrink: 0;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #ffe2ef 0%, #efc0dc 55%, #d89dc2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a65f8e;
+  font-size: 56rpx;
+  font-weight: 700;
+  box-shadow: 0 12rpx 26rpx rgba(221, 178, 201, 0.32);
+}
+
+.home-section {
+  margin-top: 34rpx;
+}
+
+.home-section:first-of-type {
+  margin-top: 46rpx;
+}
+
+.home-flow-card {
+  margin-top: 28rpx;
+}
+
+.home-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 20rpx;
+}
+
+.home-flow-item {
+  display: flex;
+  gap: 18rpx;
+  align-items: flex-start;
+  padding-top: 18rpx;
+  border-top: 1rpx solid rgba(214, 187, 142, 0.22);
+}
+
+.home-flow-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.home-flow-item__index {
+  width: 54rpx;
+  height: 54rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(242, 217, 233, 0.96);
+  color: #bf9960;
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.home-flow-item__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-flow-item__title {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #6e5663;
+  font-size: 28rpx;
+}
+
+.stage-card {
+  margin-top: 28rpx;
+}
+
+.stage-title {
+  display: block;
+  margin: 14rpx 0 12rpx;
+  font-size: 40rpx;
+  line-height: 1.1;
+}
+
+.action-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18rpx;
+}
+
+.quick-entry-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.quick-entry-card {
+  min-height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(247, 239, 244, 0.96));
+}
+
+.quick-entry-title {
+  display: block;
+  margin: 12rpx 0 10rpx;
+  color: #6f5764;
+  font-size: 30rpx;
+  line-height: 1.15;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.action-card {
+  min-height: 168rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(248, 239, 244, 0.98));
+}
+
+.action-card--primary {
+  background: linear-gradient(135deg, rgba(255, 231, 239, 0.98), rgba(242, 206, 228, 0.96));
+  border-color: rgba(213, 171, 192, 0.42);
+}
+
+.action-card--daily {
+  background:
+    radial-gradient(circle at top right, rgba(255, 224, 191, 0.42), transparent 26%),
+    linear-gradient(180deg, rgba(255, 249, 244, 0.98), rgba(248, 236, 226, 0.96));
+  border-color: rgba(220, 189, 158, 0.36);
+}
+
+.action-card--annual {
+  background:
+    radial-gradient(circle at top right, rgba(208, 225, 245, 0.42), transparent 26%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.98), rgba(240, 246, 252, 0.96));
+  border-color: rgba(176, 205, 233, 0.4);
+}
+
+.action-card--relationship {
+  background:
+    radial-gradient(circle at top right, rgba(246, 209, 223, 0.42), transparent 26%),
+    linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(248, 238, 244, 0.96));
+  border-color: rgba(220, 181, 201, 0.42);
+}
+
+.action-title {
+  display: block;
+  margin: 12rpx 0 10rpx;
+  color: #6f5764;
+  font-size: 42rpx;
+  line-height: 1.05;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.gateway-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.gateway-item {
+  aspect-ratio: 1 / 0.92;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320rpx;
+  padding: 26rpx 24rpx 24rpx;
+  background: linear-gradient(180deg, rgba(255, 251, 252, 0.98), rgba(250, 244, 247, 0.96));
+  border-radius: 30rpx;
+  border: 1rpx solid rgba(226, 199, 214, 0.36);
+  box-sizing: border-box;
+  box-shadow: 0 14rpx 30rpx rgba(219, 196, 207, 0.12);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.gateway-item--featured {
+  background: linear-gradient(180deg, rgba(255, 245, 249, 0.98), rgba(247, 236, 243, 0.96));
+  border-color: rgba(213, 171, 192, 0.36);
+}
+
+.gateway-item--daily {
+  background:
+    radial-gradient(circle at top right, rgba(255, 232, 205, 0.5), transparent 26%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(250, 241, 233, 0.96));
+  border-color: rgba(220, 189, 158, 0.3);
+}
+
+.gateway-item--annual {
+  background:
+    radial-gradient(circle at top right, rgba(217, 230, 246, 0.48), transparent 26%),
+    linear-gradient(180deg, rgba(250, 253, 255, 0.98), rgba(242, 247, 252, 0.96));
+  border-color: rgba(176, 205, 233, 0.32);
+}
+
+.gateway-item--relationship {
+  background:
+    radial-gradient(circle at top right, rgba(248, 220, 231, 0.46), transparent 26%),
+    linear-gradient(180deg, rgba(255, 251, 253, 0.98), rgba(250, 241, 246, 0.96));
+  border-color: rgba(220, 181, 201, 0.32);
+}
+
+.gateway-item--archive {
+  background:
+    radial-gradient(circle at top right, rgba(244, 227, 210, 0.46), transparent 26%),
+    linear-gradient(180deg, rgba(255, 252, 249, 0.98), rgba(247, 240, 234, 0.96));
+  border-color: rgba(216, 187, 159, 0.3);
+}
+
+.gateway-item--featured .gateway-title {
+  color: #624f5a;
+}
+
+.gateway-item--featured .gateway-subtitle {
+  color: rgba(143, 116, 129, 0.84);
+}
+
+.gateway-title,
+.update-title {
+  display: block;
+  font-size: 30rpx;
+  margin: 14rpx 0;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.gateway-title {
+  line-height: 1.15;
+  margin: 0;
+  max-width: 100%;
+  font-size: 36rpx;
+  color: #6c5663;
+}
+
+.gateway-subtitle {
+  display: block;
+  margin-top: 10rpx;
+  color: rgba(142, 122, 133, 0.74);
+  font-size: 22rpx;
+  letter-spacing: 0;
+}
+
+.gateway-copy {
+  margin-top: auto;
+  padding-top: 26rpx;
+  min-width: 0;
+}
+
+.gateway-icon-badge {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10rpx 24rpx rgba(196, 156, 181, 0.16), inset 0 1rpx 0 rgba(255, 255, 255, 0.76);
+}
+
+.gateway-icon-badge--daily {
+  background: linear-gradient(145deg, #fff6ea, #ffe8cb);
+}
+
+.gateway-icon-badge--annual {
+  background: linear-gradient(145deg, #f3f8ff, #e5effb);
+}
+
+.gateway-icon-badge--relationship {
+  background: linear-gradient(145deg, #fff2f8, #f6ddea);
+}
+
+.gateway-icon-badge--archive {
+  background: linear-gradient(145deg, #fff7ed, #f5e0c9);
+}
+
+.gateway-icon-image {
+  width: 54rpx;
+  height: 54rpx;
+  filter: drop-shadow(0 3rpx 6rpx rgba(174, 140, 158, 0.18));
+}
+
+.recent-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18rpx;
+  background: linear-gradient(180deg, rgba(255, 251, 252, 0.98), rgba(247, 240, 244, 0.96));
+}
+
+.recent-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-name {
+  display: block;
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+
+.recent-main .eyebrow {
+  margin-bottom: 10rpx;
+}
+
+.recent-arrow {
+  color: #b797a7;
+  font-size: 48rpx;
+  margin-left: 20rpx;
+}
+
+.gateway-header {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.gateway-mark {
+  width: 3rpx;
+  height: 34rpx;
+  background: linear-gradient(180deg, #d1aa62, rgba(209, 170, 98, 0.08));
+  border-radius: 999rpx;
+}
+
+.home-title {
+  margin-bottom: 0;
+  font-size: 34rpx;
+  line-height: 1;
+}
+
+.section-header {
+  margin-bottom: 18rpx;
+}

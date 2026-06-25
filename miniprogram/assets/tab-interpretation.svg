@@ -1,0 +1,19 @@
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="annualBody" x1="19" y1="15" x2="54" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DDEBF8"/>
+      <stop offset="0.52" stop-color="#E9D3E5"/>
+      <stop offset="1" stop-color="#D9A5C9"/>
+    </linearGradient>
+    <linearGradient id="annualGold" x1="25" y1="21" x2="47" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9C779"/>
+      <stop offset="1" stop-color="#C49B54"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="19" width="36" height="36" rx="10" fill="url(#annualBody)" stroke="#E0C8D9" stroke-width="2"/>
+  <path d="M25 16V24M47 16V24" stroke="#B787A8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M24 30H48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.78"/>
+  <path d="M36 34L38.3 40.7L45 43L38.3 45.3L36 52L33.7 45.3L27 43L33.7 40.7L36 34Z" fill="url(#annualGold)"/>
+  <circle cx="28" cy="36" r="2.2" fill="#B98BB1"/>
+  <circle cx="44" cy="36" r="2.2" fill="#B98BB1"/>
+</svg>

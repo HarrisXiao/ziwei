@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="archiveLuckRing" x1="15" y1="14" x2="49" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE4AE"/>
+      <stop offset="0.58" stop-color="#E1B365"/>
+      <stop offset="1" stop-color="#B987A8"/>
+    </linearGradient>
+    <linearGradient id="archiveLuckNeedle" x1="26" y1="21" x2="41" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8F7190"/>
+      <stop offset="1" stop-color="#5E4D5D"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="19" fill="#FFF6EA"/>
+  <circle cx="32" cy="32" r="17" stroke="url(#archiveLuckRing)" stroke-width="3"/>
+  <path d="M26 40L30.3 25.4C30.5 24.8 31.3 24.6 31.8 25.1L40.9 34.2C41.4 34.7 41.2 35.5 40.6 35.7L26 40Z" fill="url(#archiveLuckNeedle)"/>
+  <circle cx="33" cy="33" r="3.4" fill="#FFF5EA" stroke="#8E6D83" stroke-width="2"/>
+  <path d="M46 15L47.4 19.6L52 21L47.4 22.4L46 27L44.6 22.4L40 21L44.6 19.6L46 15Z" fill="#E8BF6C"/>
+</svg>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#cec3ce",
+              "surface-bright": "#3c373e",
+              "primary-fixed": "#f7d8ff",
+              "error": "#ffb4ab",
+              "on-error-container": "#ffdad6",
+              "error-container": "#93000a",
+              "outline-variant": "#4b444d",
+              "secondary-container": "#af8d11",
+              "surface-container-high": "#2d282f",
+              "primary-fixed-dim": "#eab2ff",
+              "tertiary-fixed": "#ffdea3",
+              "primary": "#eab2ff",
+              "on-tertiary": "#402d00",
+              "secondary-fixed": "#ffe088",
+              "on-error": "#690005",
+              "on-background": "#e9e0e8",
+              "on-primary-fixed-variant": "#633179",
+              "on-primary-fixed": "#320047",
+              "tertiary": "#e7c17a",
+              "outline": "#978e98",
+              "inverse-primary": "#7d4a93",
+              "background": "#161218",
+              "on-primary-container": "#c68edd",
+              "secondary-fixed-dim": "#e9c349",
+              "inverse-on-surface": "#342f35",
+              "surface-container-highest": "#38333a",
+              "on-secondary-container": "#342800",
+              "on-secondary-fixed": "#241a00",
+              "on-secondary": "#3c2f00",
+              "surface-container": "#221e24",
+              "on-tertiary-fixed-variant": "#5c4305",
+              "surface-dim": "#161218",
+              "secondary": "#e9c349",
+              "inverse-surface": "#e9e0e8",
+              "on-secondary-fixed-variant": "#574500",
+              "surface-tint": "#eab2ff",
+              "tertiary-fixed-dim": "#e7c17a",
+              "on-tertiary-container": "#c09e5a",
+              "primary-container": "#54236a",
+              "on-tertiary-fixed": "#261900",
+              "surface-container-low": "#1e1a20",
+              "surface": "#161218",
+              "surface-container-lowest": "#110d13",
+              "on-surface": "#e9e0e8",
+              "surface-variant": "#38333a",
+              "tertiary-container": "#4b3500",
+              "on-primary": "#4a1960"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .newsreader { font-family: 'Newsreader', serif; }
+        .manrope { font-family: 'Manrope', sans-serif; }
+        .celestial-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(84, 35, 106, 0.4) 0%, transparent 70%);
+        }
+        .cloud-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='60' viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c0-10 10-20 20-20s20 10 20 20-10 20-20 20-20-10-20-20zm-20 10c0-5 5-10 10-10s10 5 10 10-5 10-10 10-10-5-10-10zm60 0c0-5 5-10 10-10s10 5 10 10-5 10-10 10-10-5-10-10z' fill='%23e9c349' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-primary min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#161218] dark:bg-[#161218] flex justify-between items-center px-6 py-4 w-full fixed top-0 z-[100] docked full-width">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#EAB2FF]">menu</span>
+</div>
+<h1 class="font-serif text-lg tracking-widest Newsreader text-[#E9C349] font-serif italic text-xl">Celestial Manuscript</h1>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#EAB2FF]">account_circle</span>
+</div>
+<div class="absolute bottom-0 left-0 bg-gradient-to-b from-[#1E1A20] to-transparent h-1 w-full"></div>
+</header>
+<main class="pt-20 px-5 space-y-10">
+<!-- Fortune of the Day Hero Section -->
+<section class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative bg-surface-container-low rounded-xl overflow-hidden shadow-2xl cloud-pattern border border-outline-variant/10">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="p-8 space-y-6 relative z-10">
+<div class="space-y-1">
+<p class="font-label text-xs uppercase tracking-[0.2em] text-secondary-fixed-dim">Daily Alignment</p>
+<h2 class="font-headline text-4xl font-light italic leading-tight text-on-background">Fortune of the Day</h2>
+</div>
+<div class="flex items-end justify-between">
+<div class="space-y-4 max-w-[65%]">
+<p class="manrope text-on-surface-variant text-sm leading-relaxed">
+                                The Purple Star resides in your Wealth Palace today. A golden opportunity for strategic expansion manifests under the lunar influence.
+                            </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary-container/40 rounded-full text-[10px] uppercase tracking-wider text-primary font-bold">Luck: 88%</span>
+<span class="px-3 py-1 bg-tertiary-container/40 rounded-full text-[10px] uppercase tracking-wider text-tertiary font-bold">Element: Fire</span>
+</div>
+</div>
+<div class="relative">
+<div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(234,178,255,0.4)]">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle Star Map Background Decoration -->
+<div class="absolute inset-0 pointer-events-none opacity-20 celestial-glow"></div>
+</div>
+</section>
+<!-- Quick Access Bento Grid -->
+<section class="space-y-6">
+<h3 class="font-headline text-xl text-on-background ml-1 border-l-2 border-secondary pl-4">Divination Gateways</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-highest/50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between aspect-square group transition-all duration-300 hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">brightness_7</span>
+</div>
+<div>
+<h4 class="font-headline text-lg leading-none mb-1">Natal Chart</h4>
+<p class="manrope text-[10px] text-on-surface-variant uppercase tracking-tighter">Analysis</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-highest/50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between aspect-square group transition-all duration-300 hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">calendar_month</span>
+</div>
+<div>
+<h4 class="font-headline text-lg leading-none mb-1">Annual</h4>
+<p class="manrope text-[10px] text-on-surface-variant uppercase tracking-tighter">Fortune</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-highest/50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between aspect-square group transition-all duration-300 hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">favorite</span>
+</div>
+<div>
+<h4 class="font-headline text-lg leading-none mb-1">Relationship</h4>
+<p class="manrope text-[10px] text-on-surface-variant uppercase tracking-tighter">Sync</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-highest/50 backdrop-blur-md p-5 rounded-xl flex flex-col justify-between aspect-square group transition-all duration-300 hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary">explore</span>
+</div>
+<div>
+<h4 class="font-headline text-lg leading-none mb-1">Lucky</h4>
+<p class="manrope text-[10px] text-on-surface-variant uppercase tracking-tighter">Directions</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Astrological News & Today's Taboos -->
+<section class="space-y-8 pb-10">
+<div class="space-y-4">
+<div class="flex justify-between items-end px-1">
+<h3 class="font-headline text-xl text-on-background">Celestial Updates</h3>
+<a class="manrope text-[10px] uppercase tracking-widest text-secondary hover:underline transition-all" href="#">View Archive</a>
+</div>
+<!-- News Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 border-l-4 border-primary/40 flex gap-4 items-start transition-all hover:translate-x-1">
+<div class="flex-1 space-y-2">
+<p class="manrope text-[10px] text-primary/60 font-bold uppercase">Transit Insight</p>
+<h5 class="manrope font-semibold text-sm">Saturn's Movement into the Career Palace</h5>
+<p class="manrope text-xs text-on-surface-variant line-clamp-2">The shift in celestial positioning suggests a period of intense focus on long-term professional foundations...</p>
+</div>
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest">
+<img alt="Nebula space cosmic pattern" class="w-full h-full object-cover" data-alt="Deep purple nebula space cosmic pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAglT2dRQdfWZJwz5PBZFGDD5W1wMQnDM4wT2Lw1Molpar6-fcxgW25JYhsFKcRfTpVgnSw3lyh7g2sYwX7p3LM5tMqqYLmic7lhfmEH2qzN2sCzHQqRiYFv25S_Dp-CCpqn2f2dqPG5YbKgBm_ZQ7bKkj_IsjJ0W1jdsBQgKoDWzUD-G5RHyPxws6CU14SQc0cDwbsYNuZrHSUQU7-ZoOxV6fMuk2JLyLl_4tvj8mMQaFNu2B8VEvDr2i-7BVOxYrTjp8yb2OawncF"/>
+</div>
+</div>
+<!-- Today's Taboos -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden relative group">
+<div class="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity pointer-events-none cloud-pattern"></div>
+<div class="p-6 space-y-4 relative z-10">
+<h4 class="font-headline text-lg text-secondary-fixed-dim italic">Today's Harmonization</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="manrope text-[10px] uppercase font-bold text-on-surface">Auspicious</span>
+</div>
+<p class="manrope text-xs text-on-surface-variant">Signing contracts, travel, home renovation.</p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm">cancel</span>
+<span class="manrope text-[10px] uppercase font-bold text-on-surface">Avoid</span>
+</div>
+<p class="manrope text-xs text-on-surface-variant">Lending money, major surgeries, litigation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#1E1A20]/80 backdrop-blur-xl dark:bg-[#1E1A20]/80 border-t border-[#4B444D]/20 shadow-[0_-8px_32px_rgba(234,178,255,0.08)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 docked full-width bottom-0 rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-[#EAB2FF] bg-[#54236A]/40 rounded-xl px-3 py-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope mt-1">Fortune</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CEC3CE]/60 hover:text-[#E9C349] transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope mt-1">Chart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CEC3CE]/60 hover:text-[#E9C349] transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope mt-1">Interpretation</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CEC3CE]/60 hover:text-[#E9C349] transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope mt-1">Archive</span>
+</a>
+</nav>
+<!-- FAB for Quick Reading -->
+<button class="fixed bottom-24 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-secondary-container text-on-secondary shadow-lg flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</button>
+</body></html>

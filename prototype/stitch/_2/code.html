@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Celestial Manuscript - Natal Chart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#cec3ce",
+              "surface-bright": "#3c373e",
+              "primary-fixed": "#f7d8ff",
+              "error": "#ffb4ab",
+              "on-error-container": "#ffdad6",
+              "error-container": "#93000a",
+              "outline-variant": "#4b444d",
+              "secondary-container": "#af8d11",
+              "surface-container-high": "#2d282f",
+              "primary-fixed-dim": "#eab2ff",
+              "tertiary-fixed": "#ffdea3",
+              "primary": "#eab2ff",
+              "on-tertiary": "#402d00",
+              "secondary-fixed": "#ffe088",
+              "on-error": "#690005",
+              "on-background": "#e9e0e8",
+              "on-primary-fixed-variant": "#633179",
+              "on-primary-fixed": "#320047",
+              "tertiary": "#e7c17a",
+              "outline": "#978e98",
+              "inverse-primary": "#7d4a93",
+              "background": "#161218",
+              "on-primary-container": "#c68edd",
+              "secondary-fixed-dim": "#e9c349",
+              "inverse-on-surface": "#342f35",
+              "surface-container-highest": "#38333a",
+              "on-secondary-container": "#342800",
+              "on-secondary-fixed": "#241a00",
+              "on-secondary": "#3c2f00",
+              "surface-container": "#221e24",
+              "on-tertiary-fixed-variant": "#5c4305",
+              "surface-dim": "#161218",
+              "secondary": "#e9c349",
+              "inverse-surface": "#e9e0e8",
+              "on-secondary-fixed-variant": "#574500",
+              "surface-tint": "#eab2ff",
+              "tertiary-fixed-dim": "#e7c17a",
+              "on-tertiary-container": "#c09e5a",
+              "primary-container": "#54236a",
+              "on-tertiary-fixed": "#261900",
+              "surface-container-low": "#1e1a20",
+              "surface": "#161218",
+              "surface-container-lowest": "#110d13",
+              "on-surface": "#e9e0e8",
+              "surface-variant": "#38333a",
+              "tertiary-container": "#4b3500",
+              "on-primary": "#4a1960"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.glass-panel {
+    background: rgba(30, 26, 32, 0.7);
+    backdrop-filter: blur(24px)
+    }
+.silk-bg {
+    background: radial-gradient(circle at 50% -20%, #2a1f2e 0%, #161218 100%);
+    position: relative;
+    overflow-x: hidden
+    }
+.silk-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuD9W7J35xEw69-FIOnvap6N0PfF-6VnObjWnFGcm689MYiyIiLthaXRgT9GAMi4RH--rfouglYEc0qdwl1FFlwqLKY9nzZP3xHAdQ73B5Qrq-41KFCbrAuUiy_Tn5HlVvkKPIB_Fb4JwYCq35LZdX7Ww1wxjQK3OwQKR4w-a1Tc4O3jR8mkewceitmMWNtYXvYG8hWMwnH846Tqcee2H7AjhX8SQtuzth15bySzmnn3vJZU0jxAjFsHs9OKRdiJi6lJJIrD_bJWgJuS);
+    opacity: 0.05;
+    pointer-events: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body silk-bg min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-[#161218] dark:bg-[#161218] flex justify-between items-center px-6 py-4 w-full sticky top-0 z-[60] docked full-width">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#EAB2FF] dark:text-[#EAB2FF]">menu</span>
+<h1 class="font-serif text-lg tracking-widest Newsreader text-[#EAB2FF] dark:text-[#EAB2FF]">Celestial Manuscript</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[#E9C349] font-serif italic text-xl">庚子</span>
+<span class="material-symbols-outlined text-[#EAB2FF] dark:text-[#EAB2FF]">account_circle</span>
+</div>
+</header>
+<div class="bg-gradient-to-b from-[#1E1A20] to-transparent h-1 w-full sticky top-[60px] z-50"></div>
+<main class="px-6 pt-8 pb-32 max-w-2xl mx-auto">
+<!-- Header Section -->
+<section class="mb-12 text-center">
+<h2 class="font-headline text-4xl mb-2 text-on-background italic">Manifest Your Destiny</h2>
+<p class="text-on-surface-variant font-body text-sm tracking-wide opacity-80">Enter the coordinates of your earthly arrival to unveil the stars.</p>
+</section>
+<!-- Input Form Section -->
+<div class="space-y-10">
+<!-- Name Input -->
+<div class="relative group">
+<label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-2 px-1">Seeker Name</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-4 px-6 focus:ring-1 focus:ring-secondary/40 text-on-background placeholder:text-on-surface-variant/40 transition-all duration-300" placeholder="Enter Full Name" type="text"/>
+</div>
+<!-- Birth Details Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Date & Toggle -->
+<div class="space-y-4">
+<div class="flex justify-between items-end mb-2 px-1">
+<label class="block font-label text-[10px] uppercase tracking-widest text-secondary">Birth Date</label>
+<div class="flex bg-surface-container-low rounded-full p-1 scale-90 origin-right">
+<button class="px-3 py-1 text-[10px] rounded-full bg-primary-container text-on-primary-container transition-colors">SOLAR</button>
+<button class="px-3 py-1 text-[10px] rounded-full text-on-surface-variant/60 hover:text-on-surface-variant">LUNAR</button>
+</div>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-4 px-6 focus:ring-1 focus:ring-secondary/40 text-on-background [color-scheme:dark]" type="date"/>
+</div>
+<!-- Gender Selection -->
+<div class="space-y-4">
+<label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-2 px-1">Polarity</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-4 rounded-xl bg-surface-container-highest border border-outline-variant/20 hover:border-primary/40 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">male</span>
+<span class="text-sm font-label uppercase tracking-tighter">Yang</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-4 rounded-xl bg-primary-container border border-primary/20 text-on-primary-container transition-all">
+<span class="material-symbols-outlined text-sm">female</span>
+<span class="text-sm font-label uppercase tracking-tighter">Yin</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Birth Time Wheel Mock -->
+<div class="space-y-4">
+<label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-2 px-1">Earthly Branch (Hour)</label>
+<div class="relative bg-surface-container-low rounded-xl p-6 overflow-hidden flex justify-center items-center group">
+<div class="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-surface-container-low to-transparent z-10 pointer-events-none"></div>
+<div class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-surface-container-low to-transparent z-10 pointer-events-none"></div>
+<div class="flex gap-8 items-center text-center">
+<div class="opacity-20 font-headline text-lg">辰 (Chen)</div>
+<div class="opacity-40 font-headline text-xl">巳 (Si)</div>
+<div class="font-headline text-3xl text-secondary px-6 border-x border-outline-variant/20">午 (Wu)</div>
+<div class="opacity-40 font-headline text-xl">未 (Wei)</div>
+<div class="opacity-20 font-headline text-lg">申 (Shen)</div>
+</div>
+</div>
+<p class="text-[10px] text-center text-on-surface-variant opacity-60">11:00 AM - 01:00 PM</p>
+</div>
+<!-- Generate Button -->
+<div class="pt-6">
+<button class="w-full relative group overflow-hidden py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold tracking-[0.2em] uppercase text-sm shadow-[0_0_32px_rgba(234,178,255,0.2)] hover:shadow-[0_0_48px_rgba(234,178,255,0.4)] transition-all duration-500 border border-secondary/30">
+<span class="relative z-10">Generate Celestial Chart</span>
+<div class="absolute inset-0 bg-white opacity-0 group-active:opacity-10 transition-opacity"></div>
+<!-- Decorative Ornate Corners -->
+<div class="absolute top-1 left-1 w-2 h-2 border-t border-l border-secondary/60"></div>
+<div class="absolute top-1 right-1 w-2 h-2 border-t border-right border-secondary/60"></div>
+<div class="absolute bottom-1 left-1 w-2 h-2 border-b border-l border-secondary/60"></div>
+<div class="absolute bottom-1 right-1 w-2 h-2 border-b border-right border-secondary/60"></div>
+</button>
+</div>
+</div>
+<!-- Preview Section (Visible state mock) -->
+<section class="mt-20">
+<div class="flex items-center gap-4 mb-8">
+<div class="h-px flex-1 bg-gradient-to-r from-transparent via-outline-variant/40 to-transparent"></div>
+<h3 class="font-headline italic text-xl text-secondary">The Twelve Palaces</h3>
+<div class="h-px flex-1 bg-gradient-to-r from-transparent via-outline-variant/40 to-transparent"></div>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-4 gap-0 rounded-xl overflow-hidden border border-outline-variant/10">
+<!-- Palace 1 (Self) -->
+<div class="aspect-square bg-surface-container-low p-3 flex flex-col justify-between border-r border-b border-outline-variant/10 relative group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start">
+<span class="text-[8px] uppercase tracking-tighter text-on-surface-variant/60">Self</span>
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="text-center py-2">
+<p class="font-headline text-lg leading-tight text-on-background">紫微</p>
+<p class="font-label text-[8px] opacity-40 uppercase">Zi Wei</p>
+</div>
+<div class="text-[8px] text-secondary/60 text-right">寅 (Yin)</div>
+<div class="absolute top-0 right-0 w-12 h-12 opacity-[0.03] pointer-events-none transform translate-x-4 -translate-y-4">
+<img class="w-full h-full object-contain" data-alt="Abstract mystical star map pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGlzsT5frX1uvQhsRYgj57IxE3aTHBQty2uZkHzl2_1-DtITuClIyMZRrnk4PHVG62WPkxPcAKgUOlgHy03zoslArE095-jz1wkvUvQVBlSOBcBSlct70vcdEKWagA5Q1SkWR85-do7l6XY19NVQyeYZuFpb6IR6mYNr0y1_bMJ0hbIFoyjwKdtkFd_JLoRJAUGPL3iWucmig_TFSrA5Y54-B8DJKBfwASGflW9K3glNvng0hImv4lpc7EtUxw2Beii_4a40_KJUnE"/>
+</div>
+</div>
+<!-- Palace 2 -->
+<div class="aspect-square bg-surface-container-lowest p-3 flex flex-col justify-between border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start">
+<span class="text-[8px] uppercase tracking-tighter text-on-surface-variant/60">Parents</span>
+<span class="material-symbols-outlined text-[12px] text-secondary">circle_notifications</span>
+</div>
+<div class="text-center py-2">
+<p class="font-headline text-lg leading-tight text-on-background">天機</p>
+</div>
+<div class="text-[8px] text-secondary/60 text-right">卯 (Mao)</div>
+</div>
+<!-- Palace 3 -->
+<div class="aspect-square bg-surface-container-low p-3 flex flex-col justify-between border-r border-b border-outline-variant/10 group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start">
+<span class="text-[8px] uppercase tracking-tighter text-on-surface-variant/60">Karma</span>
+</div>
+<div class="text-center py-2">
+<p class="font-headline text-lg leading-tight text-on-background">破軍</p>
+</div>
+<div class="text-[8px] text-secondary/60 text-right">辰 (Chen)</div>
+</div>
+<!-- Palace 4 (Desktop/Tablet) -->
+<div class="hidden md:flex aspect-square bg-surface-container-lowest p-3 flex flex-col justify-between border-b border-outline-variant/10 group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start">
+<span class="text-[8px] uppercase tracking-tighter text-on-surface-variant/60">Estate</span>
+</div>
+<div class="text-center py-2">
+<p class="font-headline text-lg leading-tight text-on-background">太陽</p>
+</div>
+<div class="text-[8px] text-secondary/60 text-right">巳 (Si)</div>
+</div>
+<!-- Row 2 -->
+<div class="aspect-square bg-surface-container-lowest p-3 flex flex-col justify-between border-r border-b border-outline-variant/10">
+<div class="flex justify-between items-start"><span class="text-[8px] uppercase tracking-tighter text-on-surface-variant/60">Friends</span></div>
+<div class="text-center py-2"><p class="font-headline text-lg text-on-background">武曲</p></div>
+<div class="text-[8px] text-secondary/60 text-right">丑 (Chou)</div>
+</div>
+<div class="col-span-1 md:col-span-2 aspect-square md:aspect-auto bg-[#1E1A20] flex items-center justify-center border-r border-b border-outline-variant/10 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,178,255,0.1)_0%,transparent_70%)]"></div>
+</div>
+<div class="text-center z-10 px-4">
+<p class="font-headline text-3xl text-primary leading-none mb-1">中宫</p>
+<p class="font-label text-[10px] tracking-widest text-on-surface-variant/40">CENTER</p>
+</div>
+</div>
+<div class="aspect-square bg-surface-container-lowest p-3 flex flex-col justify-between border-b border-outline-variant/10">
+<div class="flex justify-between items-start"><span class="text-[8px] uppercase tracking-tighter text-on-surface-variant/60">Travel</span></div>
+<div class="text-center py-2"><p class="font-headline text-lg text-on-background">天府</p></div>
+<div class="text-[8px] text-secondary/60 text-right">午 (Wu)</div>
+</div>
+</div>
+<p class="mt-6 text-center text-secondary/60 font-serif italic text-sm">Scroll to explore full celestial insights</p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#1E1A20]/80 backdrop-blur-xl dark:bg-[#1E1A20]/80 border-t border-[#4B444D]/20 shadow-[0_-8px_32px_rgba(234,178,255,0.08)]">
+<a class="flex flex-col items-center justify-center text-[#CEC3CE]/60 hover:text-[#E9C349] transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope">Fortune</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#EAB2FF] bg-[#54236A]/40 rounded-xl px-3 py-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope">Chart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CEC3CE]/60 hover:text-[#E9C349] transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope">Interpretation</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CEC3CE]/60 hover:text-[#E9C349] transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1">folder_shared</span>
+<span class="font-sans text-[10px] uppercase tracking-tighter Manrope">Archive</span>
+</a>
+</nav>
+</body></html>

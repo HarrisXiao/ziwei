@@ -1,0 +1,110 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon">≡</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">年度运势</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{owner}}" class="surface-card preview-card">
+    <text class="eyebrow">年度运势</text>
+    <text class="section-title serif-display">今年先看阶段，再看细节</text>
+    <text class="muted">这份结果默认读取你的固定主档案，更适合拿来做阶段规划。建议先判断事业、财务、外部机会和心态承压，再把重点放到真正要投入的方向上。</text>
+    <view class="meta-row stack-24">
+      <text class="small-pill">主档案 {{owner.name}}</text>
+      <text class="small-pill">命主 {{owner.chartMeta.soul}}</text>
+      <text class="small-pill">身主 {{owner.chartMeta.body}}</text>
+      <text class="small-pill">{{owner.lifeElement}}</text>
+    </view>
+    <text class="muted stack-24">{{owner.birthDate}} · {{owner.hourLabel}} · {{owner.calendarType === 'lunar' ? '农历' : '阳历'}}</text>
+  </view>
+
+  <view wx:if="{{owner}}" class="surface-card preview-card annual-flow-card">
+    <text class="eyebrow">阅读顺序</text>
+    <text class="section-title serif-display">先看年度重点，再判断投入方向</text>
+    <view class="annual-flow-list">
+      <view class="annual-flow-item">
+        <text class="annual-flow-item__index">01</text>
+        <view class="annual-flow-item__copy">
+          <text class="annual-flow-item__title">先看阶段起伏</text>
+          <text class="muted">先判断今年整体偏机会型、承压型还是调整型，避免一上来就陷入细节。</text>
+        </view>
+      </view>
+      <view class="annual-flow-item">
+        <text class="annual-flow-item__index">02</text>
+        <view class="annual-flow-item__copy">
+          <text class="annual-flow-item__title">再看事业与财务</text>
+          <text class="muted">把资源、投入、收益和推进节奏放在一起看，才更适合做中长期规划。</text>
+        </view>
+      </view>
+      <view class="annual-flow-item">
+        <text class="annual-flow-item__index">03</text>
+        <view class="annual-flow-item__copy">
+          <text class="annual-flow-item__title">最后决定是否延伸</text>
+          <text class="muted">如果今年的重点牵涉具体人际关系，再进一步发起关系合盘做补充判断。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="surface-card preview-card annual-focus-card">
+    <text class="eyebrow">年度重点</text>
+    <text class="section-title serif-display">建议优先关注这几个维度</text>
+    <view class="preview-grid">
+      <view class="preview-cell preview-cell--main preview-cell--annual-main">事业节奏</view>
+      <view class="preview-cell preview-cell--annual">财务波动</view>
+      <view class="preview-cell preview-cell--annual">外部机会</view>
+      <view class="preview-cell preview-cell--annual">心态韧性</view>
+      <view class="preview-cell preview-cell--annual">重点提示</view>
+      <view class="preview-cell preview-cell--annual">阶段建议</view>
+    </view>
+  </view>
+
+  <view wx:if="{{errorMessage}}" class="glass-card error-box">
+    <text class="eyebrow">服务提示</text>
+    <text class="muted">{{errorMessage}}</text>
+  </view>
+
+  <view wx:if="{{!owner}}" class="glass-card empty-state">请先完成本命盘创建，系统会自动把它固定为你的主档案。</view>
+
+  <view wx:if="{{owner}}" class="button-primary" bindtap="submit">
+    {{submitting ? '生成中...' : '基于主档案生成年度运势'}}
+  </view>
+  <view wx:else class="button-primary" bindtap="createNatal">先创建本命盘</view>
+
+  <view wx:if="{{owner}}" class="surface-card chart-card annual-service-card">
+    <text class="eyebrow">年度之后</text>
+    <text class="section-title serif-display">如果还想继续展开</text>
+    <view class="annual-action-grid">
+      <view class="preview-cell preview-cell--main" bindtap="openDaily">回看今日运势</view>
+      <view class="preview-cell" bindtap="openRelationship">继续看关系合盘</view>
+      <view class="preview-cell" bindtap="openArchive">回到我的档案</view>
+      <view class="preview-cell" bindtap="backHome">返回首页</view>
+    </view>
+  </view>
+
+  <view class="tabbar">
+    <view class="tabbar-item" bindtap="backHome">
+      <image class="tabbar-icon-image" src="/assets/tab-fortune.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">首页</text>
+    </view>
+    <view class="tabbar-item" bindtap="openDaily">
+      <image class="tabbar-icon-image" src="/assets/tab-chart.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">今日</text>
+    </view>
+    <view class="tabbar-item tabbar-item--active">
+      <view class="tabbar-icon-wrap tabbar-icon-wrap--active">
+        <image class="tabbar-icon-image tabbar-icon-image--active" src="/assets/tab-interpretation.svg" mode="aspectFit"></image>
+      </view>
+      <text class="tabbar-item__sub tabbar-item__sub--active">年度</text>
+    </view>
+    <view class="tabbar-item" bindtap="openArchive">
+      <image class="tabbar-icon-image" src="/assets/tab-archive.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">档案</text>
+    </view>
+  </view>
+</view>

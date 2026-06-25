@@ -1,0 +1,138 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon" bindtap="backHome">‹</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">关系合盘</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{owner}}" class="surface-card preview-card">
+    <text class="eyebrow">关系合盘</text>
+    <text class="section-title serif-display">先看互动结构，再看现实关系</text>
+    <text class="muted">这份结果会默认读取你的固定主档案，并结合对方信息做双人对照。建议先看主星互看、五行局关系、四化影响，再回到现实沟通里验证长期协同。</text>
+    <view class="meta-row stack-24">
+      <text class="small-pill">主档案 {{owner.name}}</text>
+      <text class="small-pill">命主 {{owner.chartMeta.soul}}</text>
+      <text class="small-pill">身主 {{owner.chartMeta.body}}</text>
+      <text class="small-pill">{{owner.lifeElement}}</text>
+    </view>
+    <view class="meta-row stack-24">
+      <text class="small-pill" bindtap="useTemplate" data-gender="female">填充示例 A</text>
+      <text class="small-pill" bindtap="useTemplate" data-gender="male">填充示例 B</text>
+    </view>
+  </view>
+
+  <view wx:if="{{owner}}" class="surface-card preview-card relationship-flow-card">
+    <text class="eyebrow">阅读顺序</text>
+    <text class="section-title serif-display">先看互动结构，再判断关系价值</text>
+    <view class="relationship-flow-list">
+      <view class="relationship-flow-item">
+        <text class="relationship-flow-item__index">01</text>
+        <view class="relationship-flow-item__copy">
+          <text class="relationship-flow-item__title">先看主星与五行</text>
+          <text class="muted">先判断两个人的底层互动是互补、呼应还是拉扯，不要一开始就下结论。</text>
+        </view>
+      </view>
+      <view class="relationship-flow-item">
+        <text class="relationship-flow-item__index">02</text>
+        <view class="relationship-flow-item__copy">
+          <text class="relationship-flow-item__title">再看四化与磨合点</text>
+          <text class="muted">把容易内耗、容易互相增益的部分找出来，才能更真实地判断相处方式。</text>
+        </view>
+      </view>
+      <view class="relationship-flow-item">
+        <text class="relationship-flow-item__index">03</text>
+        <view class="relationship-flow-item__copy">
+          <text class="relationship-flow-item__title">最后回到现实关系</text>
+          <text class="muted">合盘是辅助判断，不替代现实沟通，适合拿来验证长期合作或亲密关系节奏。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="surface-card preview-card relationship-focus-card">
+    <text class="eyebrow">合盘重点</text>
+    <text class="section-title serif-display">建议优先看这几个维度</text>
+    <view class="preview-grid">
+      <view class="preview-cell preview-cell--main preview-cell--relationship-main">主星互看</view>
+      <view class="preview-cell preview-cell--relationship">五行局关系</view>
+      <view class="preview-cell preview-cell--relationship">四化影响</view>
+      <view class="preview-cell preview-cell--relationship">互动结构</view>
+      <view class="preview-cell preview-cell--relationship">磨合重点</view>
+      <view class="preview-cell preview-cell--relationship">边界感</view>
+    </view>
+  </view>
+
+  <view class="surface-card preview-card relationship-form-card">
+    <text class="eyebrow">填写对方信息</text>
+    <text class="section-title serif-display">用对方出生信息发起合盘</text>
+
+    <view class="form-section">
+      <text class="field-label">对方姓名</text>
+      <input class="field-input" placeholder="请输入对方姓名" value="{{form.name}}" bindinput="setName" />
+    </view>
+
+    <view class="form-section">
+      <text class="field-label">出生日期</text>
+      <view class="field-inline">
+        <view class="calendar-switch">
+          <text class="calendar-chip {{form.calendarType === 'solar' ? 'calendar-chip--active' : ''}}" bindtap="pickCalendar" data-value="solar">阳历</text>
+          <text class="calendar-chip {{form.calendarType === 'lunar' ? 'calendar-chip--active' : ''}}" bindtap="pickCalendar" data-value="lunar">农历</text>
+        </view>
+      </view>
+      <picker mode="date" value="{{form.birthDate}}" start="1900-01-01" bindchange="setBirthDate">
+        <view class="field-input">{{form.birthDate}}</view>
+      </picker>
+    </view>
+
+    <view class="form-section">
+      <text class="field-label">性别</text>
+      <view class="gender-grid">
+        <view class="gender-card {{form.gender === 'male' ? 'gender-card--active' : ''}}" bindtap="pickGender" data-value="male">男</view>
+        <view class="gender-card {{form.gender === 'female' ? 'gender-card--active' : ''}}" bindtap="pickGender" data-value="female">女</view>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <text class="field-label">出生时辰</text>
+      <view class="hour-wheel">
+        <view class="hour-fade hour-fade--top"></view>
+        <view class="hour-fade hour-fade--bottom"></view>
+        <view class="hour-row">
+          <view wx:for="{{hourCarousel}}" wx:key="value" class="hour-item hour-item--{{item.mutedLevel}} {{item.active ? 'hour-item--active' : ''}}" bindtap="pickHour" data-value="{{item.value}}">
+            {{item.label}}
+          </view>
+        </view>
+      </view>
+      <text class="hour-caption">对应时段 {{hourRangeText}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{errorMessage}}" class="glass-card error-box">
+    <text class="eyebrow">服务提示</text>
+    <text class="muted">{{errorMessage}}</text>
+  </view>
+
+  <view wx:if="{{!owner}}" class="glass-card empty-state">请先完成本命盘创建，系统会用它作为你的固定主档案。</view>
+
+  <view wx:if="{{owner}}" class="button-primary" bindtap="submit">
+    {{submitting ? '生成中...' : '基于主档案生成关系合盘'}}
+  </view>
+  <view wx:else class="button-primary" bindtap="createNatal">先创建本命盘</view>
+
+  <view wx:if="{{owner}}" class="surface-card chart-card relationship-shortcut-card">
+    <text class="eyebrow">合盘之后</text>
+    <text class="section-title serif-display">还可以继续这样看</text>
+    <view class="relationship-action-grid">
+      <view class="preview-cell preview-cell--main" bindtap="openDaily">回看今日运势</view>
+      <view class="preview-cell" bindtap="openAnnual">查看年度运势</view>
+      <view class="preview-cell" bindtap="openArchive">回到我的档案</view>
+      <view class="preview-cell" bindtap="backHome">返回首页</view>
+    </view>
+  </view>
+
+</view>

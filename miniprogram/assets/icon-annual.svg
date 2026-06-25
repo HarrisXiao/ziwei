@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="yearPanel" x1="17" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF4FF"/>
+      <stop offset="0.58" stop-color="#EBD7E8"/>
+      <stop offset="1" stop-color="#D9A5C9"/>
+    </linearGradient>
+    <linearGradient id="yearStar" x1="25" y1="30" x2="40" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0CE81"/>
+      <stop offset="1" stop-color="#C4944F"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="18" width="32" height="32" rx="9" fill="url(#yearPanel)" stroke="#D7BDD0" stroke-width="2"/>
+  <path d="M23 13V22M41 13V22M22 29H42" stroke="#B47DA6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 32L34.4 38.6L41 41L34.4 43.4L32 50L29.6 43.4L23 41L29.6 38.6L32 32Z" fill="url(#yearStar)"/>
+  <circle cx="25" cy="35" r="2" fill="#B98BB1"/>
+  <circle cx="39" cy="35" r="2" fill="#B98BB1"/>
+</svg>

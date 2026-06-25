@@ -1,0 +1,139 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon">≡</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">今日运势</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="surface-card hero-card">
+    <text class="eyebrow">{{daily.subtitle}}</text>
+    <view class="hero-main">
+      <view class="hero-copy">
+        <text class="section-title serif-display">{{daily.title}}</text>
+        <text class="muted hero-desc">{{daily.description}}</text>
+      </view>
+      <view class="hero-badge">运</view>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="glass-card recent-card">
+    <view class="recent-main">
+      <text class="eyebrow">今天怎么用</text>
+      <text class="recent-name">{{daily.ownerName}} 的今日提醒</text>
+      <text class="muted">今天更适合先看重点和建议，再决定是否要延伸到年度运势或关系判断。</text>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="surface-card daily-flow-card">
+    <text class="eyebrow">阅读顺序</text>
+    <text class="section-title serif-display">先看重点，再决定后续动作</text>
+    <view class="daily-flow-list">
+      <view class="daily-flow-item">
+        <text class="daily-flow-item__index">01</text>
+        <view class="daily-flow-item__copy">
+          <text class="daily-flow-item__title">先看综合状态</text>
+          <text class="muted">先判断今天整体偏稳、偏冲还是偏忙，再决定要不要推进关键安排。</text>
+        </view>
+      </view>
+      <view class="daily-flow-item">
+        <text class="daily-flow-item__index">02</text>
+        <view class="daily-flow-item__copy">
+          <text class="daily-flow-item__title">再看重点建议</text>
+          <text class="muted">把事业、财务、关系和心态建议看完，今天该避开什么会更清楚。</text>
+        </view>
+      </view>
+      <view class="daily-flow-item">
+        <text class="daily-flow-item__index">03</text>
+        <view class="daily-flow-item__copy">
+          <text class="daily-flow-item__title">最后决定是否延伸</text>
+          <text class="muted">若今天牵涉更长周期的问题，再去看年度运势或发起关系合盘。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="surface-card daily-focus-card">
+    <text class="eyebrow">今日重点</text>
+    <text class="section-title serif-display">先看状态，再决定行动</text>
+    <view class="preview-grid">
+      <view class="preview-cell preview-cell--main preview-cell--daily-main">综合状态</view>
+      <view class="preview-cell preview-cell--daily">事业推进</view>
+      <view class="preview-cell preview-cell--daily">财务节奏</view>
+      <view class="preview-cell preview-cell--daily">关系互动</view>
+      <view class="preview-cell preview-cell--daily">心态能量</view>
+      <view class="preview-cell preview-cell--daily">今日建议</view>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="metrics-grid metrics-grid--daily">
+    <view wx:for="{{daily.metrics}}" wx:key="label" class="glass-card metric-card metric-card--daily">
+      <text class="metric-score">{{item.score}}</text>
+      <text class="muted">{{item.label}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="glass-card highlights-card">
+    <text class="eyebrow">今天最值得注意</text>
+    <view wx:for="{{daily.highlights}}" wx:key="title" class="highlight-item">
+      <text class="highlight-title">{{item.title}}</text>
+      <text class="muted">{{item.content}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="surface-card ritual-box">
+    <text class="eyebrow">今日建议</text>
+    <view class="ritual-reading-grid">
+      <view>
+        <text class="ritual-heading">适合</text>
+        <text wx:for="{{daily.good}}" wx:key="*this" class="ritual-line">{{item}}</text>
+      </view>
+      <view>
+        <text class="ritual-heading ritual-heading--bad">避免</text>
+        <text wx:for="{{daily.bad}}" wx:key="*this" class="ritual-line">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && daily.hasOwner}}" class="surface-card chart-card daily-service-card">
+    <text class="eyebrow">今日之后</text>
+    <text class="section-title serif-display">如果今天的问题还没看够</text>
+    <view class="daily-service-grid">
+      <view class="preview-cell preview-cell--main" bindtap="openAnnual">继续看年度运势</view>
+      <view class="preview-cell" bindtap="openRelationship">继续看关系合盘</view>
+      <view class="preview-cell" bindtap="openArchive">回到我的档案</view>
+      <view class="preview-cell" bindtap="backHome">返回首页</view>
+    </view>
+  </view>
+
+  <view wx:if="{{daily && !daily.hasOwner}}" class="glass-card empty-state">
+    {{daily.description}}
+  </view>
+
+  <view wx:if="{{daily && !daily.hasOwner}}" class="button-primary" bindtap="createNatal">先创建本命盘</view>
+
+  <view class="tabbar">
+    <view class="tabbar-item" bindtap="backHome">
+      <image class="tabbar-icon-image" src="/assets/tab-fortune.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">首页</text>
+    </view>
+    <view class="tabbar-item tabbar-item--active">
+      <view class="tabbar-icon-wrap tabbar-icon-wrap--active">
+        <image class="tabbar-icon-image tabbar-icon-image--active" src="/assets/tab-chart.svg" mode="aspectFit"></image>
+      </view>
+      <text class="tabbar-item__sub tabbar-item__sub--active">今日</text>
+    </view>
+    <view class="tabbar-item" bindtap="openAnnual">
+      <image class="tabbar-icon-image" src="/assets/tab-interpretation.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">年度</text>
+    </view>
+    <view class="tabbar-item" bindtap="openArchive">
+      <image class="tabbar-icon-image" src="/assets/tab-archive.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">档案</text>
+    </view>
+  </view>
+</view>

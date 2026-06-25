@@ -1,0 +1,200 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon">≡</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">首页</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{hero}}" class="surface-card hero-card">
+    <view class="hero-stars">
+      <text class="hero-star hero-star--1">✦</text>
+      <text class="hero-star hero-star--2">✦</text>
+      <text class="hero-star hero-star--3">✦</text>
+      <text class="hero-star hero-star--4">✦</text>
+    </view>
+    <text class="eyebrow">{{hero.subtitle}}</text>
+    <view class="hero-main">
+      <view class="hero-copy">
+        <text class="section-title serif-display">{{hero.title}}</text>
+        <text class="muted hero-desc">{{hero.description}}</text>
+        <view class="hero-pills">
+          <text class="pill pill--active">命主 {{hero.soul}}</text>
+          <text class="pill">身主 {{hero.body}}</text>
+          <text class="pill">{{hero.element}}</text>
+        </view>
+        <text class="hero-quote">{{hero.quote}}</text>
+      </view>
+      <view class="hero-badge">✦</view>
+    </view>
+  </view>
+
+  <view wx:if="{{!ownerReady}}" class="glass-card empty-state">
+    <text class="section-title serif-display">先固定你的主档案</text>
+    <text class="muted">首次创建本命盘后，系统会把这份盘固定为你的主档案，后续今日运势、年度运势、关系合盘都会基于它继续生成。</text>
+    <view class="button-primary stack-24" bindtap="createOwnerProfile">开始创建主档案</view>
+  </view>
+
+  <view wx:if="{{ownerReady && owner}}" class="glass-card recent-card" bindtap="openArchive">
+    <view class="recent-main">
+      <text class="eyebrow">固定主档案</text>
+      <text class="recent-name">{{owner.name}}</text>
+      <text class="muted">{{owner.birthDate}} · {{owner.hourLabel}}</text>
+      <view class="meta-row stack-16">
+        <text class="small-pill">命主 {{owner.chartMeta.soul}}</text>
+        <text class="small-pill">身主 {{owner.chartMeta.body}}</text>
+        <text class="small-pill">{{owner.lifeElement}}</text>
+      </view>
+    </view>
+    <text class="recent-arrow">›</text>
+  </view>
+
+  <view wx:if="{{ownerReady}}" class="surface-card home-flow-card">
+    <text class="eyebrow">使用顺序</text>
+    <text class="section-title serif-display">先看今日，再决定是否展开</text>
+    <view class="home-flow-list">
+      <view class="home-flow-item">
+        <text class="home-flow-item__index">01</text>
+        <view class="home-flow-item__copy">
+          <text class="home-flow-item__title">今日运势</text>
+          <text class="muted">先快速判断今天的状态和建议，是你最应该高频打开的一项服务。</text>
+        </view>
+      </view>
+      <view class="home-flow-item">
+        <text class="home-flow-item__index">02</text>
+        <view class="home-flow-item__copy">
+          <text class="home-flow-item__title">年度运势</text>
+          <text class="muted">当你需要做阶段决策时，再展开看更长周期的变化与重点。</text>
+        </view>
+      </view>
+      <view class="home-flow-item">
+        <text class="home-flow-item__index">03</text>
+        <view class="home-flow-item__copy">
+          <text class="home-flow-item__title">关系合盘</text>
+          <text class="muted">涉及合作、亲密关系或重要人物时，再进入双盘对照分析。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="home-section">
+    <view class="section-header">
+      <view class="gateway-header">
+        <view class="gateway-mark"></view>
+        <text class="section-title home-title">核心功能</text>
+      </view>
+    </view>
+    <view class="gateway-grid">
+      <view
+        wx:for="{{gateways}}"
+        wx:key="key"
+        class="glass-card gateway-item gateway-item--{{item.key}} {{item.key === 'daily' ? 'gateway-item--featured' : ''}}"
+        bindtap="openGateway"
+        data-path="{{item.path}}"
+      >
+        <view class="gateway-icon-badge gateway-icon-badge--{{item.key}}">
+          <image class="gateway-icon-image" src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <view class="gateway-copy">
+          <text class="gateway-title">{{item.title}}</text>
+          <text class="gateway-subtitle">{{item.subtitle}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{ownerReady}}" class="home-section">
+    <view class="section-header">
+      <text class="section-title">立即开始</text>
+    </view>
+    <view class="action-strip">
+      <view class="glass-card action-card action-card--primary action-card--daily" bindtap="openDaily">
+        <text class="eyebrow">今天先看</text>
+        <text class="action-title">今日运势</text>
+        <text class="muted">快速获取今天的安排建议</text>
+      </view>
+      <view class="glass-card action-card action-card--annual" bindtap="openAnnual">
+        <text class="eyebrow">阶段规划</text>
+        <text class="action-title">年度运势</text>
+        <text class="muted">判断未来一段时间的重点方向</text>
+      </view>
+      <view class="glass-card action-card action-card--relationship" bindtap="openRelationship">
+        <text class="eyebrow">关系判断</text>
+        <text class="action-title">关系合盘</text>
+        <text class="muted">查看互动结构和磨合重点</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{ownerReady}}" class="home-section">
+    <view class="section-header">
+      <text class="section-title">快捷入口</text>
+    </view>
+    <view class="quick-entry-row">
+      <view class="glass-card quick-entry-card" bindtap="openArchive">
+        <text class="eyebrow">主档案</text>
+        <text class="quick-entry-title">查看我的档案</text>
+        <text class="muted">回看固定主档案与历史结果</text>
+      </view>
+      <view class="glass-card quick-entry-card" bindtap="createOwnerProfile">
+        <text class="eyebrow">补充记录</text>
+        <text class="quick-entry-title">新增本命记录</text>
+        <text class="muted">保留更多命盘记录用于对照</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="home-section">
+    <view class="section-header">
+      <text class="section-title">{{ownerReady ? '最近结果' : '最近命盘'}}</text>
+      <text class="section-link" bindtap="openGateway" data-path="/pages/archive/index">查看全部</text>
+    </view>
+    <view wx:if="{{recentRecords.length}}">
+      <view
+        wx:for="{{recentRecords}}"
+        wx:key="id"
+        class="glass-card recent-card"
+        bindtap="openRecord"
+        data-id="{{item.id}}"
+      >
+        <view class="recent-main">
+          <text class="recent-name">{{item.name}}</text>
+          <text class="muted">{{item.birthDate}} · {{item.hourLabel}}</text>
+          <view class="meta-row stack-16">
+            <text class="small-pill">{{item.chartMeta && item.chartMeta.modeLabel ? item.chartMeta.modeLabel : '本命盘'}}</text>
+            <text class="small-pill">命主 {{item.chartMeta ? item.chartMeta.soul : item.mainStar}}</text>
+            <text class="small-pill">身主 {{item.chartMeta ? item.chartMeta.body : item.supportStar}}</text>
+            <text class="small-pill">{{item.lifeElement}}</text>
+          </view>
+        </view>
+        <text class="recent-arrow">›</text>
+      </view>
+    </view>
+    <view wx:else class="glass-card empty-state">还没有保存命盘，先生成第一份命盘吧。</view>
+  </view>
+
+  <view class="tabbar">
+    <view class="tabbar-item tabbar-item--active">
+      <view class="tabbar-icon-wrap tabbar-icon-wrap--active">
+        <image class="tabbar-icon-image tabbar-icon-image--active" src="/assets/tab-fortune.svg" mode="aspectFit"></image>
+      </view>
+      <text class="tabbar-item__sub tabbar-item__sub--active">首页</text>
+    </view>
+    <view class="tabbar-item" bindtap="openDaily">
+      <image class="tabbar-icon-image" src="/assets/tab-chart.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">今日</text>
+    </view>
+    <view class="tabbar-item" bindtap="openAnnual">
+      <image class="tabbar-icon-image" src="/assets/tab-interpretation.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">年度</text>
+    </view>
+    <view class="tabbar-item" bindtap="openArchive">
+      <image class="tabbar-icon-image" src="/assets/tab-archive.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">档案</text>
+    </view>
+  </view>
+</view>

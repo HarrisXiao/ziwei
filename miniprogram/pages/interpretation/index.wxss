@@ -1,0 +1,454 @@
+.interpretation-shell {
+  padding-bottom: 184rpx;
+}
+
+.interpretation-brand {
+  display: block;
+}
+
+.interpretation-eyebrow {
+  margin-top: 6rpx;
+  letter-spacing: 4rpx;
+  font-size: 16rpx;
+}
+
+.editorial-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  min-width: 0;
+}
+
+.interpretation-title {
+  display: block;
+  font-size: 58rpx;
+  line-height: 1.05;
+  color: #6f5764;
+  margin: 14rpx 0 18rpx;
+}
+
+.interpretation-quote {
+  display: block;
+  line-height: 1.7;
+}
+
+.interpretation-summary {
+  display: block;
+  line-height: 1.8;
+  margin-top: 20rpx;
+}
+
+.mode-callout {
+  margin-top: 24rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 248, 251, 0.92);
+  border: 1rpx solid rgba(226, 199, 214, 0.44);
+}
+
+.mode-callout--annual {
+  border-color: rgba(214, 187, 142, 0.34);
+}
+
+.mode-callout--relationship {
+  border-color: rgba(213, 171, 192, 0.34);
+}
+
+.mode-callout__title,
+.mode-callout__text {
+  display: block;
+}
+
+.mode-callout__title {
+  color: #c79f58;
+  font-size: 22rpx;
+  letter-spacing: 3rpx;
+  margin-bottom: 10rpx;
+}
+
+.mode-callout__text {
+  color: #8f7d88;
+  line-height: 1.8;
+  font-size: 22rpx;
+}
+
+.editorial-art {
+  position: relative;
+  height: 280rpx;
+  min-width: 0;
+}
+
+.art-orb {
+  position: absolute;
+  inset: 0;
+  border-radius: 28rpx;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.72), rgba(236,197,222,0.28) 20%, rgba(255,255,255,0) 54%),
+    radial-gradient(circle at center, rgba(255,255,255,0.18), rgba(255,255,255,0) 65%);
+  filter: blur(2rpx);
+}
+
+.transit-panel {
+  position: absolute;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: 18rpx;
+  min-width: 0;
+  background:
+    radial-gradient(circle at top right, rgba(255, 228, 236, 0.34), transparent 24%),
+    linear-gradient(180deg, rgba(255, 249, 252, 0.96), rgba(248, 240, 245, 0.94));
+}
+
+.transit-title {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 34rpx;
+  color: #8f6780;
+}
+
+.reading-flow-card {
+  margin-top: 28rpx;
+}
+
+.reading-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 20rpx;
+}
+
+.reading-flow-item {
+  display: flex;
+  gap: 18rpx;
+  align-items: flex-start;
+  padding-top: 18rpx;
+  border-top: 1rpx solid rgba(214, 187, 142, 0.22);
+}
+
+.reading-flow-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.reading-flow-item__index {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: rgba(242, 217, 233, 0.96);
+  color: #bf9960;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.reading-flow-item__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.reading-flow-item__title {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #6e5663;
+  font-size: 28rpx;
+}
+
+.section-kicker {
+  margin-bottom: 16rpx;
+}
+
+.service-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+  margin-top: 22rpx;
+}
+
+.service-action-item {
+  min-height: 110rpx;
+  border-radius: 22rpx;
+  background: rgba(255, 248, 251, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #8f7d88;
+  font-size: 22rpx;
+  line-height: 1.5;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.service-action-item--primary {
+  background: rgba(243, 220, 234, 0.96);
+  color: #a66693;
+}
+
+.metrics-section {
+  margin-top: 28rpx;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.metric-card {
+  text-align: center;
+}
+
+.metric-card--natal {
+  background:
+    radial-gradient(circle at top right, rgba(243, 217, 232, 0.38), transparent 24%),
+    linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(248, 239, 244, 0.96));
+  border-color: rgba(220, 181, 201, 0.3);
+}
+
+.metric-card--annual {
+  background:
+    radial-gradient(circle at top right, rgba(206, 225, 245, 0.38), transparent 24%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.98), rgba(240, 246, 252, 0.96));
+  border-color: rgba(176, 205, 233, 0.34);
+}
+
+.metric-card--relationship {
+  background:
+    radial-gradient(circle at top right, rgba(246, 209, 223, 0.38), transparent 24%),
+    linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(248, 238, 244, 0.96));
+  border-color: rgba(220, 181, 201, 0.34);
+}
+
+.metric-score {
+  display: block;
+  font-size: 52rpx;
+  color: #ba79a7;
+  margin-bottom: 10rpx;
+}
+
+.metrics-section--annual .metric-score {
+  color: #7f9dbb;
+}
+
+.metrics-section--relationship .metric-score {
+  color: #bf7599;
+}
+
+.feature-stack {
+  margin-top: 28rpx;
+}
+
+.feature-card {
+  display: flex;
+  gap: 18rpx;
+  margin-bottom: 20rpx;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.feature-card--1 {
+  margin-left: 18rpx;
+}
+
+.feature-card--3 {
+  margin-left: 12rpx;
+}
+
+.feature-rail {
+  width: 8rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(180deg, #d1aa62 0%, rgba(209,170,98,0.12) 100%);
+}
+
+.feature-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.feature-meta {
+  display: flex;
+  gap: 16rpx;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.feature-mark {
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 999rpx;
+  background: rgba(243, 220, 234, 0.96);
+  color: #a66693;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  flex-shrink: 0;
+}
+
+.palace-title {
+  display: block;
+  font-size: 32rpx;
+  margin: 14rpx 0 12rpx;
+  line-height: 1.25;
+}
+
+.palace-stars {
+  display: block;
+  margin-bottom: 14rpx;
+}
+
+.feature-link {
+  display: block;
+  margin-top: 18rpx;
+  color: #bf8b8c;
+  letter-spacing: 3rpx;
+  font-size: 18rpx;
+}
+
+.chart-card {
+  margin-top: 28rpx;
+}
+
+.basis-card {
+  margin-top: 28rpx;
+}
+
+.basis-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+.basis-summary-item {
+  min-height: 128rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 248, 251, 0.96);
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.basis-summary-item__label {
+  display: block;
+  color: #c79f58;
+  margin-bottom: 10rpx;
+  font-size: 22rpx;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.chart-cell {
+  min-height: 156rpx;
+  border-radius: 22rpx;
+  background: rgba(255, 248, 251, 0.96);
+  padding: 18rpx;
+  box-sizing: border-box;
+  border: 1rpx solid rgba(228, 202, 170, 0.24);
+  min-width: 0;
+}
+
+.chart-cell-title,
+.chart-cell-stars,
+.chart-cell-score {
+  display: block;
+}
+
+.chart-cell-title {
+  color: #705865;
+  font-size: 24rpx;
+}
+
+.chart-cell-stars {
+  color: #998791;
+  font-size: 18rpx;
+  line-height: 1.5;
+  margin-top: 10rpx;
+}
+
+.chart-cell-score {
+  color: #c79f58;
+  font-size: 28rpx;
+  margin-top: 14rpx;
+}
+
+.highlights-card,
+.ritual-box {
+  margin-top: 28rpx;
+}
+
+.highlights-card--natal {
+  background:
+    radial-gradient(circle at top right, rgba(243, 217, 232, 0.26), transparent 24%),
+    linear-gradient(180deg, rgba(255, 249, 251, 0.98), rgba(248, 239, 244, 0.96));
+}
+
+.highlights-card--annual {
+  background:
+    radial-gradient(circle at top right, rgba(206, 225, 245, 0.26), transparent 24%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.98), rgba(240, 246, 252, 0.96));
+}
+
+.highlights-card--relationship {
+  background:
+    radial-gradient(circle at top right, rgba(246, 209, 223, 0.26), transparent 24%),
+    linear-gradient(180deg, rgba(255, 250, 252, 0.98), rgba(248, 238, 244, 0.96));
+}
+
+.highlight-item {
+  margin-top: 20rpx;
+}
+
+.highlight-title {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #c79f58;
+  font-size: 26rpx;
+}
+
+.ritual-reading-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24rpx;
+  margin-top: 22rpx;
+}
+
+.ritual-heading,
+.ritual-line {
+  display: block;
+}
+
+.ritual-heading {
+  color: #c79f58;
+  margin-bottom: 12rpx;
+}
+
+.ritual-heading--bad {
+  color: #ffb4ab;
+}
+
+.ritual-line {
+  color: #8f7d88;
+  line-height: 1.8;
+  font-size: 24rpx;
+}
+
+.gold-line {
+  height: 2rpx;
+  margin: 30rpx 0 10rpx;
+  background: linear-gradient(90deg, transparent, rgba(209,170,98,0.46), transparent);
+}
+
+@media (max-width: 720rpx) {
+  .basis-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

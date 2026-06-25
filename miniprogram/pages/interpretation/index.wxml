@@ -1,0 +1,193 @@
+<view class="page-shell interpretation-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon" bindtap="backHome">‹</text>
+      <view>
+        <text class="brand interpretation-brand">紫微命书</text>
+        <text class="eyebrow interpretation-eyebrow">{{record && record.chartMeta && record.chartMeta.modeLabel ? record.chartMeta.modeLabel : '命盘解读'}}</text>
+      </view>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">解读</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{record}}" class="editorial-hero">
+    <view class="editorial-copy">
+      <text class="eyebrow">{{record && record.chartMeta && record.chartMeta.modeLabel ? record.chartMeta.modeLabel : '紫微排盘'}}</text>
+      <text class="interpretation-title serif-display">{{modeUi.heroTitle || '命盘解读'}}</text>
+      <text class="soft-text interpretation-quote">{{record.quote}}</text>
+      <text class="muted interpretation-summary">{{record.summary}}</text>
+      <view class="meta-row stack-24">
+        <text class="small-pill">命主 {{record.chartMeta.soul}}</text>
+        <text class="small-pill">身主 {{record.chartMeta.body}}</text>
+        <text class="small-pill">{{record.chartMeta.fiveElementsClass}}</text>
+      </view>
+      <view class="mode-callout mode-callout--{{record.mode || 'natal'}}">
+        <text class="mode-callout__title">
+          {{record.mode === 'annual' ? '年度观察建议' : record.mode === 'relationship' ? '关系研判建议' : '本命阅读建议'}}
+        </text>
+        <text class="mode-callout__text">
+          {{record.mode === 'annual'
+            ? '先看阶段起伏，再看重点宫位，不要把单个分值当成全年结论。'
+            : record.mode === 'relationship'
+              ? '先看互动结构，再看规则命中，最后再结合现实关系节奏判断。'
+              : '先理解命格主轴，再结合大限与流年，不要只看单个宫位。'}}
+        </text>
+      </view>
+    </view>
+    <view class="editorial-art">
+      <view class="art-orb"></view>
+      <view class="glass-card transit-panel">
+        <text class="eyebrow">{{record.transit.label}}</text>
+        <text class="transit-title">{{record.transit.value}}</text>
+        <text class="muted interpretation-summary">{{record.transit.insight}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{record && modeUi.readingSteps && modeUi.readingSteps.length}}" class="surface-card reading-flow-card">
+    <text class="eyebrow">{{modeUi.readingTitle || '怎么读这份结果'}}</text>
+    <view class="reading-flow-list">
+      <view wx:for="{{modeUi.readingSteps}}" wx:key="title" class="reading-flow-item">
+        <text class="reading-flow-item__index">0{{index + 1}}</text>
+        <view class="reading-flow-item__copy">
+          <text class="reading-flow-item__title">{{item.title}}</text>
+          <text class="muted">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{record.highlights.length}}" class="glass-card highlights-card highlights-card--{{record.mode || 'natal'}}">
+    <text class="eyebrow">{{modeUi.highlightsTitle || '解读重点'}}</text>
+    <view wx:for="{{record.highlights}}" wx:key="title" class="highlight-item">
+      <text class="highlight-title">{{item.title}}</text>
+      <text class="muted">{{item.content}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{record.metrics.length}}" class="metrics-section metrics-section--{{record.mode || 'natal'}}">
+    <view class="section-kicker">
+      <text class="eyebrow">{{modeUi.metricsTitle || '命盘关键指标'}}</text>
+    </view>
+    <view class="metrics-grid">
+      <view wx:for="{{record.metrics}}" wx:key="label" class="glass-card metric-card metric-card--{{record.mode || 'natal'}}">
+        <text class="metric-score">{{item.score}}</text>
+        <text class="muted">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{featuredPalaces.length}}" class="feature-stack">
+    <view class="section-kicker">
+      <text class="eyebrow">重点宫位</text>
+    </view>
+    <view wx:for="{{featuredPalaces}}" wx:key="key" class="feature-card feature-card--{{index}}">
+      <view class="feature-rail"></view>
+      <view class="feature-content glass-card">
+        <view class="feature-meta">
+          <view class="feature-mark">{{index + 1}}</view>
+          <view>
+            <text class="eyebrow">{{item.subtitle}}</text>
+            <text class="palace-title">{{item.title}} · {{item.theme}}</text>
+          </view>
+        </view>
+        <text class="muted palace-stars">{{item.starsText}}</text>
+        <text class="muted">{{item.description}}</text>
+        <text class="feature-link">{{item.heavenlyStem}}{{item.earthlyBranch}} · {{item.tag}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{record.mode === 'relationship' && record.chartMeta && record.chartMeta.relationMethod}}" class="surface-card basis-card">
+    <text class="eyebrow">合盘依据</text>
+    <view class="basis-summary-grid">
+      <view class="basis-summary-item">
+        <text class="basis-summary-item__label">结果来源</text>
+        <text class="muted">{{record.chartMeta.relationMethod}}</text>
+      </view>
+      <view class="basis-summary-item">
+        <text class="basis-summary-item__label">对方信息</text>
+        <text class="muted">{{record.chartMeta.counterpartName}} · 命主 {{record.chartMeta.counterpartSoul}} · 身主 {{record.chartMeta.counterpartBody}}</text>
+      </view>
+      <view wx:if="{{record.chartMeta.compatibilityEngine}}" class="basis-summary-item">
+        <text class="basis-summary-item__label">综合判断</text>
+        <text class="muted">综合分 {{record.chartMeta.compatibilityEngine.finalScore}}，基础分 {{record.chartMeta.compatibilityEngine.baseScore}}</text>
+      </view>
+      <view class="basis-summary-item">
+        <text class="basis-summary-item__label">使用边界</text>
+        <text class="muted">{{record.chartMeta.relationAccurateScope}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{record.mode === 'relationship' && record.chartMeta && record.chartMeta.compatibilityEngine && record.chartMeta.compatibilityEngine.ruleHits.length}}" class="glass-card highlights-card">
+    <text class="eyebrow">规则命中</text>
+    <view wx:if="{{record.chartMeta.compatibilityEngine.tags && record.chartMeta.compatibilityEngine.tags.length}}" class="highlight-item">
+      <text class="highlight-title">关系标签</text>
+      <text class="muted">{{record.chartMeta.compatibilityEngine.tags.join(' / ')}}</text>
+    </view>
+    <view class="highlight-item">
+      <text class="highlight-title">分值拆分</text>
+      <text class="muted">主星互看 {{record.chartMeta.compatibilityEngine.breakdown.star}} / 五行局 {{record.chartMeta.compatibilityEngine.breakdown.element}} / 四化影响 {{record.chartMeta.compatibilityEngine.breakdown.mutagen}}</text>
+    </view>
+    <view wx:for="{{record.chartMeta.compatibilityEngine.ruleHits}}" wx:key="rule" class="highlight-item">
+      <text class="highlight-title">{{item.title}}</text>
+      <text class="muted">{{item.evidence}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{chartGrid.length}}" class="surface-card chart-card">
+    <text class="eyebrow">{{modeUi.chartTitle || '十二宫概览'}}</text>
+    <view class="chart-grid">
+      <view wx:for="{{chartGrid}}" wx:key="key" class="chart-cell">
+        <text class="chart-cell-title">{{item.title}}</text>
+        <text class="chart-cell-stars">{{item.starsText}}</text>
+        <text class="chart-cell-stars">{{item.heavenlyStem}}{{item.earthlyBranch}} · {{item.changsheng12 || '未标注'}}</text>
+        <text class="chart-cell-score">{{item.score}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{record.rituals}}" class="surface-card ritual-box">
+    <text class="eyebrow">行动建议</text>
+    <view class="ritual-reading-grid">
+      <view>
+        <text class="ritual-heading">建议</text>
+        <text wx:for="{{record.rituals.good}}" wx:key="*this" class="ritual-line">{{item}}</text>
+      </view>
+      <view>
+        <text class="ritual-heading ritual-heading--bad">注意</text>
+        <text wx:for="{{record.rituals.bad}}" wx:key="*this" class="ritual-line">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{record}}" class="button-primary" bindtap="createNew">
+    {{modeUi.ctaLabel || '继续生成'}}
+  </view>
+
+  <view wx:if="{{record && modeUi.serviceActions && modeUi.serviceActions.length}}" class="surface-card chart-card">
+    <text class="eyebrow">{{modeUi.serviceActionTitle || '继续使用'}}</text>
+    <view class="service-action-grid">
+      <view
+        wx:for="{{modeUi.serviceActions}}"
+        wx:key="path"
+        class="service-action-item {{item.primary ? 'service-action-item--primary' : ''}}"
+        bindtap="openServiceAction"
+        data-path="{{item.path}}"
+      >
+        {{item.label}}
+      </view>
+    </view>
+  </view>
+
+  <view class="gold-line"></view>
+
+  <view wx:if="{{!record && !loading}}" class="glass-card empty-state">
+    还没有可展示的命盘，请先去排盘页生成一份。
+  </view>
+
+</view>

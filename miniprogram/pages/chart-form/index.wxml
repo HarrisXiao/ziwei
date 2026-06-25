@@ -1,0 +1,137 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon" bindtap="backHome">‹</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">本命盘</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view class="surface-card intro-card">
+    <text class="section-title serif-display">生成真实命盘</text>
+    <text class="muted">首次创建本命盘后，系统会自动将这份盘固定为你的主档案，后续今日运势与年度运势都会基于它生成。</text>
+    <view class="meta-row stack-24">
+      <text class="small-pill" bindtap="useTemplate" data-gender="female">填充示例 A</text>
+      <text class="small-pill" bindtap="useTemplate" data-gender="male">填充示例 B</text>
+    </view>
+  </view>
+
+  <view wx:if="{{!owner}}" class="surface-card preview-card">
+    <text class="eyebrow">首次使用</text>
+    <text class="section-title serif-display">为什么先固定主档案</text>
+    <view class="onboarding-list">
+      <view class="onboarding-item">
+        <text class="onboarding-item__index">01</text>
+        <view class="onboarding-item__copy">
+          <text class="onboarding-item__title">这是你的基准命盘</text>
+          <text class="muted">今日运势、年度运势和关系合盘，都会以这份主档案为起点继续计算。</text>
+        </view>
+      </view>
+      <view class="onboarding-item">
+        <text class="onboarding-item__index">02</text>
+        <view class="onboarding-item__copy">
+          <text class="onboarding-item__title">后面不用反复填写</text>
+          <text class="muted">固定主档案之后，日常使用时不需要再重复输入你的出生信息。</text>
+        </view>
+      </view>
+      <view class="onboarding-item">
+        <text class="onboarding-item__index">03</text>
+        <view class="onboarding-item__copy">
+          <text class="onboarding-item__title">新的本命记录不会覆盖它</text>
+          <text class="muted">以后如果新增本命记录，也只是保存到档案里，不会自动替换现在的主档案。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{owner}}" class="glass-card error-box">
+    <text class="eyebrow">当前主档案</text>
+    <text class="muted">{{owner.name}} · 命主 {{owner.chartMeta.soul}} · 身主 {{owner.chartMeta.body}}</text>
+    <text class="muted">你现在继续生成的是一份新的本命记录，不会自动替换当前固定主档案。</text>
+  </view>
+
+  <view class="surface-card preview-card">
+    <text class="eyebrow">填写顺序</text>
+    <text class="section-title serif-display">先填出生信息，再生成命盘</text>
+    <view class="preview-grid">
+      <view class="preview-cell preview-cell--main">姓名</view>
+      <view class="preview-cell">出生日期</view>
+      <view class="preview-cell">历法类型</view>
+      <view class="preview-cell">性别</view>
+      <view class="preview-cell">出生时辰</view>
+      <view class="preview-cell">生成命盘</view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <text class="field-label">姓名</text>
+    <input class="field-input" placeholder="请输入姓名" value="{{form.name}}" bindinput="setName" />
+  </view>
+
+  <view class="form-section">
+    <text class="field-label">出生日期</text>
+    <view class="field-inline">
+      <view class="calendar-switch">
+        <text class="calendar-chip {{form.calendarType === 'solar' ? 'calendar-chip--active' : ''}}" bindtap="pickCalendar" data-value="solar">阳历</text>
+        <text class="calendar-chip {{form.calendarType === 'lunar' ? 'calendar-chip--active' : ''}}" bindtap="pickCalendar" data-value="lunar">农历</text>
+      </view>
+    </view>
+    <picker mode="date" value="{{form.birthDate}}" start="1900-01-01" bindchange="setBirthDate">
+      <view class="field-input">{{form.birthDate}}</view>
+    </picker>
+  </view>
+
+  <view class="form-section">
+    <text class="field-label">性别</text>
+    <view class="gender-grid">
+      <view class="gender-card {{form.gender === 'male' ? 'gender-card--active' : ''}}" bindtap="pickGender" data-value="male">男</view>
+      <view class="gender-card {{form.gender === 'female' ? 'gender-card--active' : ''}}" bindtap="pickGender" data-value="female">女</view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <text class="field-label">出生时辰</text>
+    <view class="hour-wheel">
+      <view class="hour-fade hour-fade--top"></view>
+      <view class="hour-fade hour-fade--bottom"></view>
+      <view class="hour-row">
+        <view
+          wx:for="{{hourCarousel}}"
+          wx:key="value"
+          class="hour-item hour-item--{{item.mutedLevel}} {{item.active ? 'hour-item--active' : ''}}"
+          bindtap="pickHour"
+          data-value="{{item.value}}"
+        >
+          {{item.label}}
+        </view>
+      </view>
+    </view>
+    <text class="hour-caption">对应时段 {{hourRangeText}}</text>
+  </view>
+
+  <view class="surface-card preview-card">
+    <text class="eyebrow">建档之后</text>
+    <text class="section-title serif-display">主档案固定后，你可以继续这些服务</text>
+    <view class="preview-grid">
+      <view class="preview-cell preview-cell--main" bindtap="openDaily">查看今日运势</view>
+      <view class="preview-cell" bindtap="openArchive">进入我的档案</view>
+      <view class="preview-cell" bindtap="openAnnual">生成年度运势</view>
+      <view class="preview-cell" bindtap="openRelationship">发起关系合盘</view>
+      <view class="preview-cell">回看历史记录</view>
+      <view class="preview-cell">继续新增本命记录</view>
+    </view>
+  </view>
+
+  <view wx:if="{{errorMessage}}" class="glass-card error-box">
+    <text class="eyebrow">服务提示</text>
+    <text class="muted">{{errorMessage}}</text>
+  </view>
+
+  <view class="button-primary" bindtap="submit">
+    {{submitting ? '排盘生成中...' : (!owner ? '创建并固定主档案' : '新增本命记录')}}
+  </view>
+
+</view>

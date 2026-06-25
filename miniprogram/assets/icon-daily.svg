@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dailySun" x1="16" y1="13" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE7B8"/>
+      <stop offset="0.55" stop-color="#E9B86D"/>
+      <stop offset="1" stop-color="#C98AA7"/>
+    </linearGradient>
+    <linearGradient id="dailySpark" x1="28" y1="22" x2="43" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6D7"/>
+      <stop offset="1" stop-color="#B874A6"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="18" fill="#FFF7EE"/>
+  <circle cx="32" cy="32" r="14" fill="url(#dailySun)"/>
+  <path d="M32 9V16M32 48V55M9 32H16M48 32H55M15.8 15.8L20.7 20.7M43.3 43.3L48.2 48.2M48.2 15.8L43.3 20.7M20.7 43.3L15.8 48.2" stroke="#D8AE68" stroke-width="3" stroke-linecap="round"/>
+  <path d="M39 22L40.8 27.2L46 29L40.8 30.8L39 36L37.2 30.8L32 29L37.2 27.2L39 22Z" fill="url(#dailySpark)"/>
+</svg>

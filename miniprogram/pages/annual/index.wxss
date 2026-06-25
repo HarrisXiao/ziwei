@@ -1,0 +1,100 @@
+@import "../chart-form/index.wxss";
+
+.service-note {
+  margin: 28rpx 0;
+}
+
+.service-note__title {
+  display: block;
+  margin: 14rpx 0 12rpx;
+  color: #6e5663;
+  font-size: 30rpx;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.annual-note {
+  border-color: rgba(214, 187, 142, 0.3);
+}
+
+.annual-focus-card {
+  margin-top: 28rpx;
+  background:
+    radial-gradient(circle at top right, rgba(208, 225, 245, 0.4), transparent 24%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.98), rgba(241, 247, 252, 0.96));
+}
+
+.annual-flow-card {
+  margin-top: 28rpx;
+  background:
+    radial-gradient(circle at top right, rgba(197, 220, 245, 0.34), transparent 24%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.98), rgba(241, 247, 252, 0.96));
+}
+
+.annual-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 20rpx;
+}
+
+.annual-flow-item {
+  display: flex;
+  gap: 18rpx;
+  align-items: flex-start;
+  padding-top: 18rpx;
+  border-top: 1rpx solid rgba(214, 187, 142, 0.22);
+}
+
+.annual-flow-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.annual-flow-item__index {
+  width: 54rpx;
+  height: 54rpx;
+  border-radius: 50%;
+  background: rgba(223, 235, 249, 0.96);
+  color: #7c99b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.annual-flow-item__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.annual-flow-item__title {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #6e5663;
+  font-size: 28rpx;
+}
+
+.annual-service-card {
+  margin-top: 28rpx;
+  background:
+    radial-gradient(circle at top right, rgba(204, 226, 247, 0.34), transparent 24%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.98), rgba(241, 247, 252, 0.96));
+}
+
+.annual-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+  margin-top: 22rpx;
+}
+
+.preview-cell--annual {
+  background: rgba(246, 250, 254, 0.98);
+  border-color: rgba(176, 205, 233, 0.34);
+}
+
+.preview-cell--annual-main {
+  background: rgba(223, 235, 249, 0.98);
+  color: #7090b0;
+}

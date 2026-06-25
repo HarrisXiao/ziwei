@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="natalStar" x1="18" y1="12" x2="47" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8BDE0"/>
+      <stop offset="0.58" stop-color="#D88BC2"/>
+      <stop offset="1" stop-color="#AD6D9E"/>
+    </linearGradient>
+    <linearGradient id="natalOrbit" x1="15" y1="22" x2="51" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAC36F"/>
+      <stop offset="1" stop-color="#B987A8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="19" fill="#FFF5FA"/>
+  <ellipse cx="32" cy="34" rx="20" ry="8" stroke="url(#natalOrbit)" stroke-width="2.4" opacity="0.75"/>
+  <path d="M32 12L35.9 25.1L49 29L35.9 32.9L32 46L28.1 32.9L15 29L28.1 25.1L32 12Z" fill="url(#natalStar)"/>
+  <circle cx="32" cy="29" r="5.2" fill="#FFF7FB" stroke="#BE82AE" stroke-width="2"/>
+</svg>

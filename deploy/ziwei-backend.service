@@ -1,0 +1,17 @@
+[Unit]
+Description=Ziwei Backend API
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ziwei/backend
+EnvironmentFile=/etc/ziwei/backend.env
+ExecStart=/usr/bin/node /opt/ziwei/backend/src/server.js
+Restart=always
+RestartSec=5
+User=root
+SyslogIdentifier=ziwei-backend
+
+[Install]
+WantedBy=multi-user.target

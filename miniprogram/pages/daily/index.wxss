@@ -1,0 +1,111 @@
+@import "../interpretation/index.wxss";
+
+.recent-card {
+  margin-top: 24rpx;
+  background:
+    radial-gradient(circle at top right, rgba(255, 225, 192, 0.5), transparent 26%),
+    linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(250, 242, 235, 0.96));
+}
+
+.daily-flow-card {
+  margin-top: 28rpx;
+  background:
+    radial-gradient(circle at top right, rgba(255, 218, 175, 0.35), transparent 24%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(250, 242, 235, 0.96));
+}
+
+.daily-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 20rpx;
+}
+
+.daily-flow-item {
+  display: flex;
+  gap: 18rpx;
+  align-items: flex-start;
+  padding-top: 18rpx;
+  border-top: 1rpx solid rgba(214, 187, 142, 0.22);
+}
+
+.daily-flow-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.daily-flow-item__index {
+  width: 54rpx;
+  height: 54rpx;
+  border-radius: 50%;
+  background: rgba(255, 232, 205, 0.96);
+  color: #c78f52;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.daily-flow-item__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.daily-flow-item__title {
+  display: block;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  color: #6e5663;
+}
+
+.daily-focus-card {
+  margin-top: 28rpx;
+  background:
+    radial-gradient(circle at top right, rgba(255, 228, 196, 0.34), transparent 24%),
+    linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(250, 242, 235, 0.96));
+}
+
+.recent-main .recent-name {
+  margin: 10rpx 0 12rpx;
+}
+
+.chart-card {
+  margin-top: 28rpx;
+}
+
+.daily-service-card {
+  margin-top: 28rpx;
+  background:
+    radial-gradient(circle at top right, rgba(255, 221, 184, 0.32), transparent 24%),
+    linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(250, 242, 235, 0.96));
+}
+
+.daily-service-grid,
+.daily-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+  margin-top: 22rpx;
+}
+
+.preview-cell--daily {
+  background: rgba(255, 248, 242, 0.98);
+  border-color: rgba(224, 195, 161, 0.34);
+}
+
+.preview-cell--daily-main {
+  background: rgba(255, 231, 205, 0.96);
+  color: #b7773d;
+}
+
+.metric-card--daily {
+  background:
+    radial-gradient(circle at top right, rgba(255, 226, 192, 0.36), transparent 24%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(250, 242, 235, 0.96));
+  border-color: rgba(220, 189, 158, 0.32);
+}
+
+.metrics-grid--daily .metric-score {
+  color: #cb8a4d;
+}

@@ -1,0 +1,84 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon" bindtap="backHome">‹</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">解读</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{record}}" class="surface-card reveal-card">
+    <text class="eyebrow">命盘解析</text>
+    <text class="reading-title">{{record.name}}</text>
+    <text class="soft-text reading-meta">{{record.birthDate}} · {{record.hourLabel}} · {{record.lifeElement}}</text>
+    <text class="muted reading-summary">{{record.summary}}</text>
+    <view class="headline-pills">
+      <text class="pill pill--active">命主 {{record.chartMeta ? record.chartMeta.soul : record.mainStar}}</text>
+      <text class="pill">身主 {{record.chartMeta ? record.chartMeta.body : record.supportStar}}</text>
+      <text class="pill">{{record.lifeElement}}</text>
+    </view>
+    <view wx:if="{{record.transit}}" class="glass-card transit-card">
+      <text class="eyebrow">{{record.transit.label}}</text>
+      <text class="transit-title">{{record.transit.value}}</text>
+      <text class="muted">{{record.transit.insight}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{record.metrics.length}}" class="metrics-grid">
+    <view wx:for="{{record.metrics}}" wx:key="label" class="glass-card metric-card">
+      <text class="metric-score">{{item.score}}</text>
+      <text class="muted">{{item.label}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{chartGrid.length}}" class="surface-card chart-card">
+    <text class="eyebrow">十二宫概览</text>
+    <view class="chart-grid">
+      <view wx:for="{{chartGrid}}" wx:key="key" class="chart-cell">
+        <text class="chart-cell-title">{{item.title}}</text>
+        <text class="chart-cell-stars">{{item.starsText}}</text>
+        <text class="chart-cell-score">{{item.score}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{featuredPalaces.length}}" class="palace-list">
+    <view wx:for="{{featuredPalaces}}" wx:key="key" class="glass-card palace-card">
+      <text class="eyebrow">{{item.subtitle}}</text>
+      <text class="palace-title">{{item.title}} · {{item.theme}}</text>
+      <text class="muted palace-stars">{{item.starsText}}</text>
+      <text class="muted">{{item.description}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{record.highlights.length}}" class="surface-card highlights-card">
+    <text class="eyebrow">解读重点</text>
+    <view wx:for="{{record.highlights}}" wx:key="title" class="highlight-item">
+      <text class="highlight-title">{{item.title}}</text>
+      <text class="muted">{{item.content}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{record.rituals}}" class="glass-card ritual-box">
+    <text class="eyebrow">研判提示</text>
+    <view class="ritual-reading-grid">
+      <view>
+        <text class="ritual-heading">建议</text>
+        <text wx:for="{{record.rituals.good}}" wx:key="*this" class="ritual-line">{{item}}</text>
+      </view>
+      <view>
+        <text class="ritual-heading ritual-heading--bad">注意</text>
+        <text wx:for="{{record.rituals.bad}}" wx:key="*this" class="ritual-line">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-row">
+    <view class="button-secondary" bindtap="backHome">返回首页</view>
+    <view class="button-secondary" bindtap="createNew">重新排盘</view>
+    <view class="button-primary action-primary" bindtap="openArchive">打开档案</view>
+  </view>
+</view>

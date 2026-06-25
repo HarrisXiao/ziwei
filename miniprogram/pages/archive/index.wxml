@@ -1,0 +1,173 @@
+<view class="page-shell">
+  <view class="topbar">
+    <view class="topbar-title">
+      <text class="topbar-icon">≡</text>
+      <text class="brand">紫微命书</text>
+    </view>
+    <view class="topbar-right">
+      <text class="brand-subtitle">档案</text>
+      <text class="topbar-icon">◔</text>
+    </view>
+  </view>
+
+  <view wx:if="{{profile}}" class="surface-card profile-card">
+    <view class="profile-hero">
+      <view class="profile-cover"></view>
+      <view class="profile-copy">
+        <text class="eyebrow">固定主档案</text>
+        <text class="section-title serif-display">{{profile.name}}</text>
+        <text class="muted profile-quote">{{profile.quote}}</text>
+        <view class="profile-status-row">
+          <text class="pill pill--active">主档案已固定</text>
+          <text class="pill">随时可查看今日 / 年度 / 合盘</text>
+        </view>
+      </view>
+    </view>
+    <view class="profile-grid">
+      <view>
+        <text class="muted meta-label">命主</text>
+        <text class="meta-value">{{profile.mainStar}}</text>
+      </view>
+      <view>
+        <text class="muted meta-label">五行局</text>
+        <text class="meta-value">{{profile.lifeElement}}</text>
+      </view>
+      <view>
+        <text class="muted meta-label">命宫地支</text>
+        <text class="meta-value">{{profile.celestialStem}}</text>
+      </view>
+      <view>
+        <text class="muted meta-label">身主</text>
+        <text class="meta-value">{{profile.supportStar}}</text>
+      </view>
+    </view>
+    <view class="button-secondary stack-24" bindtap="openOwnerRecord">查看主档案解读</view>
+  </view>
+
+  <view wx:if="{{stats}}" class="metrics-archive">
+    <view class="glass-card archive-stat">
+      <text class="archive-stat-value">{{stats.totalRecords}}</text>
+      <text class="muted">命盘档案</text>
+    </view>
+    <view class="glass-card archive-stat">
+      <text class="archive-stat-value">{{stats.realCharts}}</text>
+      <text class="muted">真实排盘</text>
+    </view>
+    <view class="glass-card archive-stat">
+      <text class="archive-stat-value">{{stats.ownerReady ? '已固定' : '未固定'}}</text>
+      <text class="muted">主档案状态</text>
+    </view>
+  </view>
+
+  <view wx:if="{{profile}}" class="surface-card service-hub-card">
+    <view class="service-hub-head">
+      <view>
+        <text class="eyebrow">常用服务</text>
+        <text class="section-title serif-display service-hub-title">从主档案继续</text>
+      </view>
+      <text class="muted service-hub-copy">先看今日状态，再做年度规划，需要判断关系时再发起合盘。</text>
+    </view>
+    <view class="service-hub-grid">
+      <view class="service-hub-item service-hub-item--highlight service-hub-item--daily" bindtap="openDaily">
+        <text class="service-hub-item__label">今日运势</text>
+        <text class="muted service-hub-item__desc">今天先看什么，适合快速判断。</text>
+      </view>
+      <view class="service-hub-item service-hub-item--annual" bindtap="openAnnual">
+        <text class="service-hub-item__label">年度运势</text>
+        <text class="muted service-hub-item__desc">看阶段起伏，做长期节奏规划。</text>
+      </view>
+      <view class="service-hub-item service-hub-item--relationship" bindtap="openRelationship">
+        <text class="service-hub-item__label">关系合盘</text>
+        <text class="muted service-hub-item__desc">基于你的主档案，分析双人互动结构。</text>
+      </view>
+      <view class="service-hub-item service-hub-item--natal" bindtap="createNatal">
+        <text class="service-hub-item__label">新增本命记录</text>
+        <text class="muted service-hub-item__desc">保留新的单人命盘，不替换已固定主档案。</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{profile}}" class="surface-card archive-guide-card">
+    <text class="eyebrow">档案使用建议</text>
+    <view class="archive-guide-list">
+      <view class="archive-guide-item">
+        <text class="archive-guide-item__index">01</text>
+        <view class="archive-guide-item__copy">
+          <text class="archive-guide-item__title">先看主档案解读</text>
+          <text class="muted">先确认命主、身主与命宫主轴，后续所有服务都以这份主档案为基准。</text>
+        </view>
+      </view>
+      <view class="archive-guide-item">
+        <text class="archive-guide-item__index">02</text>
+        <view class="archive-guide-item__copy">
+          <text class="archive-guide-item__title">高频先用今日运势</text>
+          <text class="muted">如果你每天只看一次，优先看今日运势，再决定是否展开年度或合盘。</text>
+        </view>
+      </view>
+      <view class="archive-guide-item">
+        <text class="archive-guide-item__index">03</text>
+        <view class="archive-guide-item__copy">
+          <text class="archive-guide-item__title">年度与合盘按场景使用</text>
+          <text class="muted">做规划时看年度，判断关系时看合盘，不需要反复新建主档案。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="record-section-head">
+    <view>
+      <text class="eyebrow">历史记录</text>
+      <text class="section-title serif-display record-section-title">最近生成的结果</text>
+    </view>
+    <text class="muted">可以随时回看之前的本命、年度与合盘结果。</text>
+  </view>
+
+  <view wx:if="{{records.length}}" class="record-list">
+    <view
+      wx:for="{{records}}"
+      wx:key="id"
+      class="glass-card record-item"
+      bindtap="openRecord"
+      data-id="{{item.id}}"
+    >
+      <view class="record-thumb"></view>
+      <view class="record-main">
+        <text class="record-name">{{item.name}}</text>
+        <text class="muted">{{item.birthDate}} · {{item.hourLabel}}</text>
+        <text class="record-summary muted">{{item.summary}}</text>
+        <view class="record-tags">
+          <text class="pill pill--active">{{item.lifeElement}}</text>
+          <text class="pill">{{item.chartMeta && item.chartMeta.modeLabel ? item.chartMeta.modeLabel : '本命盘'}}</text>
+          <text class="pill">命主 {{item.chartMeta ? item.chartMeta.soul : item.mainStar}}</text>
+          <text class="pill">身主 {{item.chartMeta ? item.chartMeta.body : item.supportStar}}</text>
+        </view>
+      </view>
+      <text class="record-arrow">›</text>
+    </view>
+  </view>
+  <view wx:else class="glass-card empty-state">
+    还没有历史档案，先去生成一份命盘。
+    <view class="button-primary stack-24" bindtap="createNatal">立即建档</view>
+  </view>
+
+  <view class="tabbar">
+    <view class="tabbar-item" bindtap="backHome">
+      <image class="tabbar-icon-image" src="/assets/tab-fortune.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">首页</text>
+    </view>
+    <view class="tabbar-item" bindtap="openDaily">
+      <image class="tabbar-icon-image" src="/assets/tab-chart.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">今日</text>
+    </view>
+    <view class="tabbar-item" bindtap="openAnnual">
+      <image class="tabbar-icon-image" src="/assets/tab-interpretation.svg" mode="aspectFit"></image>
+      <text class="tabbar-item__sub">年度</text>
+    </view>
+    <view class="tabbar-item tabbar-item--active">
+      <view class="tabbar-icon-wrap tabbar-icon-wrap--active">
+        <image class="tabbar-icon-image tabbar-icon-image--active" src="/assets/tab-archive.svg" mode="aspectFit"></image>
+      </view>
+      <text class="tabbar-item__sub tabbar-item__sub--active">档案</text>
+    </view>
+  </view>
+</view>

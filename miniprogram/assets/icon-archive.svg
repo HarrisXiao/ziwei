@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="archivePanel" x1="15" y1="15" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF1E5"/>
+      <stop offset="0.52" stop-color="#EBD0D8"/>
+      <stop offset="1" stop-color="#C895B8"/>
+    </linearGradient>
+    <linearGradient id="archivePerson" x1="27" y1="27" x2="38" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9E7197"/>
+      <stop offset="1" stop-color="#695669"/>
+    </linearGradient>
+  </defs>
+  <path d="M17 21C17 17.7 19.7 15 23 15H34L38 20H47C50.3 20 53 22.7 53 26V47C53 50.3 50.3 53 47 53H17C13.7 53 11 50.3 11 47V27C11 23.7 13.7 21 17 21Z" fill="url(#archivePanel)" stroke="#E1C6D3" stroke-width="2"/>
+  <circle cx="32" cy="34" r="5.5" fill="url(#archivePerson)"/>
+  <path d="M23 46C25.1 42.1 28.2 40.2 32 40.2C35.8 40.2 38.9 42.1 41 46" stroke="url(#archivePerson)" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M20 26H44" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+</svg>

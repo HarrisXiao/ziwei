@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/daily/index",
+    "pages/chart-form/index",
+    "pages/annual/index",
+    "pages/relationship/index",
+    "pages/interpretation/index",
+    "pages/archive/index",
+    "pages/reading/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#161218",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

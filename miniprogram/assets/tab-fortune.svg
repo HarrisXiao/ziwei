@@ -1,0 +1,18 @@
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fortuneCore" x1="17" y1="13" x2="55" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5B7DD"/>
+      <stop offset="0.55" stop-color="#D98BC2"/>
+      <stop offset="1" stop-color="#B876A8"/>
+    </linearGradient>
+    <linearGradient id="fortuneGold" x1="24" y1="12" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7D98F"/>
+      <stop offset="1" stop-color="#D0A154"/>
+    </linearGradient>
+  </defs>
+  <circle cx="36" cy="36" r="19" fill="#FFF3F9"/>
+  <circle cx="36" cy="36" r="18" stroke="#E7C6D9" stroke-width="2"/>
+  <path d="M36 15.5L39.8 29.2L53.5 33L39.8 36.8L36 50.5L32.2 36.8L18.5 33L32.2 29.2L36 15.5Z" fill="url(#fortuneCore)"/>
+  <path d="M52 16L53.9 22.1L60 24L53.9 25.9L52 32L50.1 25.9L44 24L50.1 22.1L52 16Z" fill="url(#fortuneGold)"/>
+  <path d="M20 42L21.6 47.4L27 49L21.6 50.6L20 56L18.4 50.6L13 49L18.4 47.4L20 42Z" fill="#E9C06B"/>
+</svg>

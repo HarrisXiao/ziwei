@@ -1,0 +1,17 @@
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="archiveCard" x1="18" y1="16" x2="55" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4EA"/>
+      <stop offset="0.55" stop-color="#ECD3D9"/>
+      <stop offset="1" stop-color="#C49BBC"/>
+    </linearGradient>
+    <linearGradient id="archiveInk" x1="29" y1="28" x2="43" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9F7196"/>
+      <stop offset="1" stop-color="#6E5B6B"/>
+    </linearGradient>
+  </defs>
+  <path d="M21 20H33L37 25H51C54.3 25 57 27.7 57 31V50C57 53.3 54.3 56 51 56H21C17.7 56 15 53.3 15 50V26C15 22.7 17.7 20 21 20Z" fill="url(#archiveCard)" stroke="#E3C8D5" stroke-width="2"/>
+  <circle cx="36" cy="37" r="6.3" fill="url(#archiveInk)"/>
+  <path d="M26 50C28.4 45.5 31.8 43.5 36 43.5C40.2 43.5 43.6 45.5 46 50" stroke="url(#archiveInk)" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M24 29H48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+</svg>

@@ -1,0 +1,14 @@
+node_modules
+backend/node_modules
+*.log
+*.pid
+.DS_Store
+coverage
+.env
+backend/.env
+miniprogram/.env
+project.private.config.json
+backend/data/*.json
+!backend/data/store.example.json
+dist
+build
