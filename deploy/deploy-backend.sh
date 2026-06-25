@@ -8,7 +8,7 @@ HEALTH_URL="${HEALTH_URL:-http://127.0.0.1:4000/health}"
 
 cd "$APP_DIR"
 
-git fetch origin "$BRANCH"
+git fetch origin "$BRANCH:refs/remotes/origin/$BRANCH"
 if [ "${FORCE_RESET:-0}" = "1" ]; then
   git reset --hard "origin/$BRANCH"
 else

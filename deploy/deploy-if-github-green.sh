@@ -7,7 +7,7 @@ REPO_SLUG="${REPO_SLUG:-HarrisXiao/ziwei}"
 DEPLOY_SCRIPT="${DEPLOY_SCRIPT:-$APP_DIR/deploy/deploy-backend.sh}"
 
 cd "$APP_DIR"
-git fetch origin "$BRANCH" >/dev/null
+git fetch origin "$BRANCH:refs/remotes/origin/$BRANCH" >/dev/null
 
 LOCAL_SHA="$(git rev-parse HEAD)"
 REMOTE_SHA="$(git rev-parse "origin/$BRANCH")"
