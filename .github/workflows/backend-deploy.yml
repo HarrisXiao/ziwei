@@ -9,6 +9,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER || 'root' }}
+      DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || 22 }}
+      HAS_DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY != '' }}
 
     steps:
       - name: Checkout
@@ -28,11 +33,12 @@ jobs:
         working-directory: backend
 
       - name: Deploy over SSH
+        if: ${{ env.DEPLOY_HOST != '' && env.HAS_DEPLOY_SSH_KEY == 'true' }}
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER || 'root' }}
-          port: ${{ secrets.DEPLOY_PORT || 22 }}
+          host: ${{ env.DEPLOY_HOST }}
+          username: ${{ env.DEPLOY_USER }}
+          port: ${{ env.DEPLOY_PORT }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             set -eu
@@ -43,3 +49,7 @@ jobs:
             git fetch origin main
             git merge --ff-only origin/main
             bash deploy/deploy-backend.sh
+
+      - name: Skip deploy notice
+        if: ${{ env.DEPLOY_HOST == '' || env.HAS_DEPLOY_SSH_KEY != 'true' }}
+        run: echo "DEPLOY_HOST or DEPLOY_SSH_KEY is not configured; tests passed and deployment was skipped."
