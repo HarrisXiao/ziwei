@@ -4,7 +4,7 @@
 
 - 本地开发：小程序连本机 `http://127.0.0.1:4000`
 - GitHub 同步：本地提交推送到 `HarrisXiao/ziwei`
-- 服务器部署：GitHub Actions 通过 SSH 触发服务器拉取代码并重启后端
+- 服务器部署：当前已部署到 `43.106.24.49`，后续可用 GitHub Actions 通过 SSH 触发服务器拉取代码并重启后端
 
 ## 目录
 
@@ -153,6 +153,57 @@ curl http://127.0.0.1:4000/health
 bash /opt/ziwei/deploy/backup-postgres.sh
 ```
 
+恢复 PostgreSQL 备份：
+
+```bash
+bash /opt/ziwei/deploy/restore-postgres.sh /path/to/ziwei-backup.dump
+```
+
+## 当前远程状态
+
+`api.pppfdsfs.top` 当前部署在 `43.106.24.49`：
+
+- DNS：`api.pppfdsfs.top -> 43.106.24.49`
+- HTTPS：Let's Encrypt 证书已签发并安装
+- Nginx：现有自定义 Nginx，新增 `api.pppfdsfs.top` server block，不覆盖 VPN 的 `www.pppfdsfs.top`
+- Backend：`ziwei-backend` systemd 服务，监听 `127.0.0.1:4000`
+- Storage：PostgreSQL 14，连接串在 `/etc/ziwei/backend.env`
+
+验证命令：
+
+```bash
+curl https://api.pppfdsfs.top/health
+systemctl status ziwei-backend
+systemctl status postgresql-14
+```
+
+这台机器同时跑 `v2ray`，短期开发/内测可以共用。正式上线建议迁移到独立服务器，避免 API、数据库、VPN 共用一台机器和同一个 Nginx 入口。
+
+## 迁移到新服务器
+
+迁移路径保持简单：
+
+1. 新服务器安装 Git、Node.js、PostgreSQL、Nginx。
+2. 克隆仓库到 `/opt/ziwei`。
+3. 写入 `/etc/ziwei/backend.env`，保持 `DATABASE_URL` 指向新 PostgreSQL。
+4. 从老服务器备份数据库：
+
+```bash
+bash /opt/ziwei/deploy/backup-postgres.sh
+```
+
+5. 把生成的 `.dump` 文件复制到新服务器。
+6. 在新服务器恢复数据库：
+
+```bash
+bash /opt/ziwei/deploy/restore-postgres.sh /path/to/ziwei-backup.dump
+```
+
+7. 启动 `ziwei-backend`，配置 Nginx 和 HTTPS。
+8. 把 DNS A 记录 `api.pppfdsfs.top` 从旧 IP 改到新 IP。
+
+只要域名不变，小程序端不需要重新改 API 地址。
+
 ## 生产架构建议
 
 当前建议的 C 端上线架构：
@@ -184,6 +235,7 @@ bash /opt/ziwei/deploy/backup-postgres.sh
 - [`deploy/bootstrap-centos.sh`](</Users/harrisxiao/Documents/ziwei/deploy/bootstrap-centos.sh>)
 - [`deploy/deploy-backend.sh`](</Users/harrisxiao/Documents/ziwei/deploy/deploy-backend.sh>)
 - [`deploy/backup-postgres.sh`](</Users/harrisxiao/Documents/ziwei/deploy/backup-postgres.sh>)
+- [`deploy/restore-postgres.sh`](</Users/harrisxiao/Documents/ziwei/deploy/restore-postgres.sh>)
 - [`.github/workflows/backend-deploy.yml`](</Users/harrisxiao/Documents/ziwei/.github/workflows/backend-deploy.yml>)
 
 ## 当前本地验证记录
@@ -197,7 +249,5 @@ bash /opt/ziwei/deploy/backup-postgres.sh
 - Docker Compose 静态配置：通过
 - Docker Compose 实跑：PostgreSQL + API 容器通过，API 容器可写入并读取 PostgreSQL
 - 小程序关键 JSON：`project.config.json`、`miniprogram/app.json`、`miniprogram/sitemap.json` 通过
-
-未在本机完成：
-
-- 远程服务器部署验证，因为首次部署前还需要确认 API 域名并配置 SSH key、HTTPS 证书和 `/etc/ziwei/backend.env`
+- 远程 HTTPS API：`https://api.pppfdsfs.top/health` 通过
+- 远程业务写入：创建 1968 年出生日期命盘、读取档案和历史记录通过

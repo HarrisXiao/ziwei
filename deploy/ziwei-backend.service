@@ -1,6 +1,6 @@
 [Unit]
 Description=Ziwei Backend API
-After=network-online.target postgresql.service
+After=network-online.target postgresql.service postgresql-14.service
 Wants=network-online.target
 
 [Service]
