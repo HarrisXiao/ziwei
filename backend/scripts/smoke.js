@@ -108,7 +108,10 @@ async function main() {
   const server = startServer();
 
   try {
-    await waitForHealth(server.getOutput, server.hasExited);
+    const health = await waitForHealth(server.getOutput, server.hasExited);
+    assert.equal(health.service, "ziwei-api");
+    assert.equal(typeof health.version, "string");
+    assert.equal(typeof health.environment, "string");
 
     const homeBefore = await fetchJson(`${BASE_URL}/api/home`);
     assert.equal(typeof homeBefore.ownerReady, "boolean");

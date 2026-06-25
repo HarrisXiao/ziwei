@@ -2,12 +2,16 @@ const http = require("http");
 const path = require("path");
 const { URL } = require("url");
 const { astro } = require("iztro");
+const packageJson = require("../package.json");
 const { createStoreBackend } = require("./storage");
 
 const PORT = Number(process.env.PORT || 4000);
 const HOST = process.env.HOST || "0.0.0.0";
 const DATA_FILE = process.env.DATA_FILE || path.join(__dirname, "../data/store.json");
 const DATABASE_URL = process.env.DATABASE_URL || "";
+const SERVICE_NAME = "ziwei-api";
+const APP_VERSION = process.env.APP_VERSION || packageJson.version;
+const NODE_ENV = process.env.NODE_ENV || "development";
 const storeBackend = createStoreBackend({
   dataFile: DATA_FILE,
   databaseUrl: DATABASE_URL
@@ -1218,6 +1222,9 @@ const server = http.createServer(async (req, res) => {
   if (req.method === "GET" && pathname === "/health") {
     sendJson(res, 200, {
       ok: true,
+      service: SERVICE_NAME,
+      version: APP_VERSION,
+      environment: NODE_ENV,
       storage: DATABASE_URL ? "postgres" : "json",
       now: new Date().toISOString()
     });
